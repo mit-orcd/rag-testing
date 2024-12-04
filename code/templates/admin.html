@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚙️ Admin Settings</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="../static/admin_settings.js"></script>
+</head>
+<body>
+    <h1>⚙️ Admin Settings</h1>
+    <form action="{{ url_for('update_settings') }}" method="POST" onsubmit="handleFormSubmission(event)">
+        <div id="admin-container">
+
+            <label for="llm_model_name">LLM Model Name:</label>
+            <select id="llm_model_name" name="llm_model_name" onchange="toggleOtherInput('llm_model_name', 'llm_model_name_other');">
+                <option value="gpt" {% if llm_model_type == 'gpt' %}selected{% endif %}>GPT2</option>
+                <option value="ollama" {% if llm_model_type == 'ollama' %}selected{% endif %}>LLama 8B</option>
+            </select>
+             <!-- <input type="text" id="llm_model_name_other" name="llm_model_name_other" style="display: none;"><br> -->
+
+            <label for="embedding_model_name">Embedding Model Name:</label>
+            <select id="embedding_model_name" name="embedding_model_name" disabled>
+                <!-- Options will be populated by JavaScript -->
+            </select><br>
+
+            <label for="num_relevant_docs">Number of Relevant Docs:</label>
+            <select id="num_relevant_docs" name="path_relevant_docs" value="{{ path_relevant_docs }}"><br>
+                <option value="orcd" {% if path_relevant_docs == 'orcd' %}selected{% endif %}>ORCD</option>
+                <option value="cluster" {% if path_relevant_docs == 'cluster' %}selected{% endif %}>ORCD + Cluster</option>
+            
+            <button type="submit">Update Settings</button>
+        </div>
+    </form>
+    <a href="{{ url_for('index') }}">🔙 Go to Chat</a>
+</body>
+</html>
