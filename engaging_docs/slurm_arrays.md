@@ -1,0 +1,13 @@
+Engaging Cluster Documentation5. Slurm Job Arrays :: Engaging Cluster DocumentationEngaging Cluster Documentation1. Logging into the clusterLogging into Engaging Open OnDemandLogging into FastXLogging in via sshLogging in from a Linux or OSX hostLogging in from a Windows host2. Replacing or Adding an SSH KeySetup SSH Key Pair Authentication3. Slurm1. Cluster workflow2. Slurm Job Scheduler3. sbatch4. srun & salloc5. Slurm Job Arrays6. Determining Resources For Your Job4. Software1. Loading Software Modules2. Python Packages3. R Packages4. Compiling Software For Personal Use5. Compiling Miniconda For Personal Use6. Running Paraview in Client Server Mode via Slurm5. Storage1. The Home directory2. The Lustre File System3. NFS StorageFile Permissions6. Virtual Environments1. Jupyter Notebooks2. Python Packages3. Python Virtual Environments4. Anaconda Virtual Environments7. Best PracticesLustre Best Practices8. Frequently Asked QuestionsImprove this page>3. Slurm> 5. Slurm Job Arrays5. Slurm Job ArraysSlurm Job ArraysA slurm array batch job is similar to just running a ‘for’ loop over the sbatch [sbatch script], but instead of having unique job id’s for each job, they all have the same jobid with a predictable id as a suffix.ExampleLet’s say you have a python script like this (addone.py):import sys
+
+var = int(sys.argv[1]) + 1 # add 1 to a number I pass in as a command line argument
+print(var)When I runpython addone.py 1on the command line, I will get 2.I usually submit this script with this sbatch command sbatch addone.sbatch using this script:#!/bin/bash
+#SBATCH -N1
+#SBATCH -n 1
+
+python addone.py 1If I wanted to get the output of adding one to numbers 1-10, I could make the sbatch job and array job, and use each array jobs unique $SLURM_ARRAY_TASK_ID variable to fill in each one.#!/bin/bash
+#SBATCH -N1
+#SBATCH -n 1
+#SBATCH --array=1-10
+
+python addone.py $SLURM_ARRAY_TASK_IDthen submit with justsbatch addone.sbatch. This will spawn 10 jobs, each one will have a unique $SLURM_ARRAY_TASK_ID variable representing which array job they are (1-10).What we have done is taken the iteration out of the python script and created a quasi parallel run.This all being said, while it does work, you may also be able to utilize the python parallel package to run each iteration as a seperate task (usually one per cpu core). This would likely be cleaner as you would stay within the python environment to handle all the parralel runs of the same code as opposed to slurm. It would likely be more efficient as well.If you have any questions about using slurm job arrays, please emailorcd-help-engaging@mit.edu4. srun & salloc6. Determining Resources For Your Job

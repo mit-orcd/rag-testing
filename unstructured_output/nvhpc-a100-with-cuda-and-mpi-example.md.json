@@ -1,0 +1,182 @@
+[
+  {
+    "element_id": "3e89520a194a88fdc075298ce225e0ce",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "NVHPC is an integrated collection of software tools and libraries distributed by NVidia. An overview document describing nvhpc can be found here. The aim of the NVHPC team is to provide up to date, preconfigured suites of compilers, libraries and tools that are specifically optimized for NVidia GPU hardware. It supports single and multi-GPU execution.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "1977a162e82df7d2c658523befdf5f4b",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "This example shows steps for using NVHPC to run a simple test MPI program, written in C, that communicates between two GPUs. The detailed steps, that can be executed in an interactive Slurm session, are explained below. A complete Slurm job example is shown at the end.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "1272eaa971d6a7c8eabd606da786d8cc",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Prerequisites",
+    "type": "Title"
+  },
+  {
+    "element_id": "709f4d89acf2fd7d9594d7ce9c2fe032",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "This example assumes you have access to a Slurm partition with GPU resources and if using Engaging are working with a Rocky Linux environment.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d74c1b19a31a2a10baa7c08244e08705",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "The NVHPC environment is installed as a module and can be made visible in a session using the command",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e8ac57c71ed7d7fb39dba6586f4154a2",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "this will add a specific version of the nvhpc software (version 23.3 released in 2023 for Engaging and version 21.5 released in 2021 for Satori) to a shell or batch script. The software added includes compilers for C, C++ and Fortran; base GPU optimized numerical libraries for linear algebra, Fourier transforms and others; GPU optimized communication libraries supporting MPI, SHMEM and NCCL APIs.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f48a64c2120d4b89d893a8c2e3e6ce60",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "An environment variable, NVHPC_ROOT, is also set. This can be used in scripts to reference the locations of libraries when needed.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7ea3c28453f550d6627978a35fd35a86",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "Here we use the module environment variable, NVHPC_ROOT, to set environment variables that have paths needed for compilation and linking of code.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3e7ee60569c5d1076f5ffe3c8b5bab4c",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "The next step is to create a file holding C code that uses MPI to send information between two GPUs running in different processes. Paste the C code below into a file called test.c.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c69711a27569c7ade2472880c4a15157",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "Here we use nvhpc MPI wrapper to compile. The two environment variables we set earlier (cuincdir and culibdir) are used to let the compile step know where to find the relevant CUDA header and library files. The CUDA runtime library (cudart) is added as a location for finding CUDA functions the code utilizes.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "082fda57a7899a23c71ce06c94df50c4",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "Once code has been compiled the mpiexec command that is part of the nvhpc module can be used to run the test program. The nvhpc module defaults to using its builtin version of OpneMPI. The OpenMPI option btl_openib_warn_no_device_params_found is passed into the OpenMPI runtime library. This option suppresses a warning that OpenMPI can generate when it encounters a network device card that is not present in a built-in list that OpenMPI has historically included.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f41bdf1e09e76fc67a1f33288f6743d8",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "Note the salloc command is only needed to run interactively from the login node. If you are running in a batch job or are already in an interactive job on a compute node you will not need to first run salloc.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "128a682b7acc921a75b4d6ee992b88a7",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "Running this program using the command above should produce the following output.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0c25fb25901829b667adf11eb925c888",
+    "metadata": {
+      "filename": "nvhpc-a100-with-cuda-and-mpi-example.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1272eaa971d6a7c8eabd606da786d8cc"
+    },
+    "text": "First create a file called \"test.c\" containing the example C program above. The job script file below will run all the steps described above for \"test.c\". It can be submitted to Slurm using the command sbatch followed by the filename holding the job script.",
+    "type": "NarrativeText"
+  }
+]

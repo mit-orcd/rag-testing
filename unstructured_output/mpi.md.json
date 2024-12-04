@@ -1,0 +1,1155 @@
+[
+  {
+    "element_id": "1d1ce05cefec8d90646e099eed166c9f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Message Passing Interface (MPI) is a standard designed for data communication in parallel computing. The MPI standard defines useful library functions/routines in C, C++, and Fortran. Python interface is available for MPI.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "32129e6410bf449f3b3f8994ab9670e3",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "There are several MPI implementationos, such as OpenMPI, MPICH, MVAPICH, and Intel MPI, which work with Infiniband network for high-bandwidth data communication.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "46bffee9e746338c0bbefdc8d13a56ae",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "There are OpenMPI modules available on the cluster. Before building or runrning your MPI programs, load the modules of a gcc compiler and an openmpi libraries to set up environment varialbes.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "049ea0705164d5c05dc5a5ca350ad174",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "There are two different operations systems (OS) on the cluster: CentOS 7 and Rocky 8. For CentOS 7 nodes, load these modules, module load gcc/6.2.0 openmpi/3.0.4",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a1b509e43514225c7b011b3be4b6be21",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "or module load gcc/9.3.0 openmpi/4.0.5",
+    "type": "Title"
+  },
+  {
+    "element_id": "33c15df8f37311b970e46fa9021f4e02",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a1b509e43514225c7b011b3be4b6be21"
+    },
+    "text": "For Rocky 8 nodes, load these modules, module use /orcd/software/community/001/modulefiles module load gcc/12.2.0 openmpi/4.1.4-pmi-ucx-x86_64",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "bb48f2c1ac83fc3dd496c17db5e759d5",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a1b509e43514225c7b011b3be4b6be21"
+    },
+    "text": "If you need to run MPI programs with GPUs, load these modules instead, module load gcc/12.2.0 openmpi/4.1.4-pmi-cuda-ucx-x86_64",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d130fdefd03ff580bf769c135c6cbcf9",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "35c93fadf3ed5dad8f01cd22c2fb4ee9",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Load a gcc module first, then the openmpi modules built with this gcc will be shown in the output of module avail and can be loaded.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5bf53607eff6dbba162a327931915648",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "This section will be focused on building MPI programs in C or Fortran. Python users can refer to this page for using the mpi4py package.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0a2d0a15a7eb5c52bb6e9e8b01ce1da1",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Most MPI software should be built from source codes. First, download the package from the internet. Load one of the OpenMPI modules mentioned above. A typical building process is like this, ./configure CC=mpicc CXX=mpicxx --prefix= make make install",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f8b45b45573aea7db1c45b1a11f722e0",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Create an install directory and assign its full path to the flag --prefix. This is where the binaries will be saved.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ebbd993e10b46ce3fe3608e2934cc44c",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Widely-used MPI software includes Gromacs, Lammps, NWchem, OpenFOAM and many others. The building process of every software is different. Refer to its official installation guide for details.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0d6342f7e92bdbc9436b47e51fa2445f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Some MPI software are provided with prebuilt binaries only. In this case, download the binaries compatible with the linux OS and the x86_64 CPU architecture. If possible, try to choose an OpenMPI version, that the binary was built with, as close as possible to that of a module on the cluster. This type of MPI software includes ORCA.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e7d7b9a9992f17c8412c37d215d73267",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Spack is a popular tool to build many software packages systematically on clusters. It makes building processes convenient in many cases. If you want to use Spack to build your software package on the cluster, refer to the recipe page for Spack.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a6bcc486dcad2ebc9692e3abe9194c5c",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "If you develop your MPI codes, the codes can be compiled and linked like this mpicc -O3 name.c -o my_program",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a7a4f56ef4a38dd72437325ca97f5b9a",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "or mpif90 -O3 name.f90 -o my_program",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "caf09f4d35cf48c96de1797ec5cd2233",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "This will create an executable file named my_program. Prepare a GNU Makefile to build programs with multiple source files.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "04153f4b4ff9c06f4fb7bcb1a468b6ae",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "MPI programs are suitable to run on multiple CPU cores of a single node or on multiple nodes.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "14ef98a6a0f061ad01fa42e327751693",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d130fdefd03ff580bf769c135c6cbcf9"
+    },
+    "text": "Here is an example script (e.g. named job.sh) to run an MPI job using multiple cores on a single node.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fc7a08208f3fc2449952da059bf3eb19",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "!/bin/bash",
+    "type": "Title"
+  },
+  {
+    "element_id": "76bc14d59baac137f7c8ad9df317dada",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -p sched_mit_hill",
+    "type": "Title"
+  },
+  {
+    "element_id": "6e3e4082df32f2b6097e9412f8823e15",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -t 30",
+    "type": "Title"
+  },
+  {
+    "element_id": "07e987552fad862b10885316a1201f3b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 1",
+    "type": "Title"
+  },
+  {
+    "element_id": "7a3763cf9a666f99babb1d494dc27529",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -n 8",
+    "type": "Title"
+  },
+  {
+    "element_id": "34e471dc5235edd9f22de2143f27aa0c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --mem=10GB",
+    "type": "Title"
+  },
+  {
+    "element_id": "ccd41a093e9dbebc9875aac89bbe1b9f",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "srun hostname module load gcc/6.2.0 openmpi/3.0.4 mpirun -n $SLURM_NTASKS my_program",
+    "type": "Title"
+  },
+  {
+    "element_id": "efa58e3d963dd4ef12cda85db557336f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ccd41a093e9dbebc9875aac89bbe1b9f"
+    },
+    "text": "This job requests 8 cores (with -n) and 10 GB of memory (with --mem) on 1 node (with -N) for 30 minutes (with -t 30). The -n flag is the same as --ntasks. The specified value is saved to the variable SLURM_NTASKS. In this case, the requested number of cores is equal to SLURM_NTASKS. The command mpirun -n $SLURM_NTASKS ensures that each MPI task runs on one core.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8a0e7414e5f43a308b6108738795343e",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ccd41a093e9dbebc9875aac89bbe1b9f"
+    },
+    "text": "The command srun hostname is to check if the correct number of cores and nodes are assigned to the job. It is not needed in production runs.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7ae30188a59c307c289494526e93757d",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ccd41a093e9dbebc9875aac89bbe1b9f"
+    },
+    "text": "The modules used in the above example is for the CentOS 7 OS, which works for these partitions: sched_mit_hill, newnodes, and sched_any. If using a partition with the Rocky 8 OS, such as sched_mit_orcd, change the modules accrodingly (see the first session). These are public partitions that are avaiable to most users. Many labs have partitions for their purchased nodes.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "cb38493a62236641ef305d53e732c6f2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Submit the job with the sbatch command, sbatch job.sh",
+    "type": "Title"
+  },
+  {
+    "element_id": "0d16d12cfab51e92d509faa07f4ce48f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cb38493a62236641ef305d53e732c6f2"
+    },
+    "text": "To run an MPI job on multiple nodes, refer to the following exmaple script.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b9ca5e19bafa36b345565f4eebb11219",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "!/bin/bash",
+    "type": "Title"
+  },
+  {
+    "element_id": "31036f4d170a195fd624048d36af9a0a",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -p sched_mit_hill",
+    "type": "Title"
+  },
+  {
+    "element_id": "7354c35fc7eacd44b3ca92a1f6a5eb18",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -t 30",
+    "type": "Title"
+  },
+  {
+    "element_id": "91324f46b3af191aa2a451d3187d2d02",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 2",
+    "type": "Title"
+  },
+  {
+    "element_id": "36c62f3171a25bbd2dfa53f3189bd2ce",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --ntasks-per-node=8",
+    "type": "Title"
+  },
+  {
+    "element_id": "1de38fb675994c5cc95acf27343f5173",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --mem=10GB",
+    "type": "Title"
+  },
+  {
+    "element_id": "1c14bb449109a19d49615de76648209c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "srun hostname module load gcc/6.2.0 openmpi/3.0.4 mpirun -n $SLURM_NTASKS my_program",
+    "type": "Title"
+  },
+  {
+    "element_id": "c4e5d49f3827abed56550c4723b79d1f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "This job requests 2 nodes with 8 cores and 10 GB of memory per node. In this case, the total number of cores (saved to SLURM_NTASKS) is equal to the number of nodes (saved to SLURM_NNODES) times the number of cores per node (saved to SLURM_NTASKS_PER_NODE). The command mpirun -n $SLURM_NTASKS ensures that MPI tasks are distributed to both nodes and each MPI task runs on one core.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ff681e8acb5edf638225de18ae1e1700",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "Alternatively, users can specify the number of cores per node using an OpenMPI option like this mpirun -npernode $SLURM_NTASKS_PER_NODE my_program.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fd72dc08e78429982019e1a855072a59",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "If replacing --ntasks-per-node=8 with -n 16 in the above script, the job will request 16 cores on 2 nodes, but it is not always the case that there are 8 cores per node. For example, there may be 7 cores on one node and 9 cores on another, or 1 core on one node and 15 cores on another, etc, depending on the current available resources on the cluster.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "cd58db2d8012993c21947bb05968e7b9",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "To get a better idea on how many nodes, cores and memory should be requested, users need to consider the following two questions.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ff24a321bd510f2c8ea1ad51866d3f96",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "First, what resources are available on the cluster? Use this command to check node and job info on the cluster, including the constraint associated with OS (%f), the nubmer of CPU cores (%c), the memory size (%m), the wall time limit (%l), and the current usage status (%t). sinfo -N -p sched_mit_hill,newnodes,sched_any,sched_mit_orcd -o %f,%c,%m,%l,%t |grep -v drain",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9e917cab99a9b686d49ba732eb34983f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "On typical nodes of the cluster, the number of cores per node varies from 16 to 128, and the memory per node varies from 63 GB to 515 GB.",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "7a501b90d493335652447004053311c1",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "1c14bb449109a19d49615de76648209c"
+    },
+    "text": "To obtain a good performance of MPI programs, it is recommended to request all physical CPU cores and memory on each node. For example, request two nodes with 16 physical cores per node and all of the memory like this,",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "382ae69ee29d1890a936d07edca6105b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 2",
+    "type": "Title"
+  },
+  {
+    "element_id": "7c14094aab7abd53ac90266370a80adf",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --ntasks-per-node=16",
+    "type": "Title"
+  },
+  {
+    "element_id": "8bea786c438d9601a9824fb72c47805e",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --mem=0",
+    "type": "Title"
+  },
+  {
+    "element_id": "a844452dd949c27d203af9fbe8b42efe",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8bea786c438d9601a9824fb72c47805e"
+    },
+    "text": "As MPI is a distributed-memory parallelism, sometimes it is good to use the --mem-per-core flag assigning a certain amount of memory to each core. The total memory is increased with the number of cores in this case. Double check that the total memory fits in the maximum memory of a node to avoid failed jobs.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ca2c9bb142b8e4cbb0349a7c3ecbf230",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8bea786c438d9601a9824fb72c47805e"
+    },
+    "text": "Second, what is the speedup of your MPI program? According to Amdahl's law, well-performing MPI programs are usually speeded up almost linearly as the number of cores is increased until it is saturated at some point. In practice, try to run testing cases investigating the speedup of your program, and then decide how many cores are needed to speed it up efficiently. Do not increase the number of cores when speedup is poor.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3a105214664750a360fc2d3f8a814e17",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "848039777b194551ade49113a3c314a4",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3a105214664750a360fc2d3f8a814e17"
+    },
+    "text": "After a job starts to run, execute the command squeue -u $USER to check which node the job is running on, and then log in to the node with ssh",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e89306f94750197423e8091eb61add06",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3a105214664750a360fc2d3f8a814e17"
+    },
+    "text": "MPI programs are based on distributed-memory parallelism, that says, each MPI task owns a faction of data, such as arrays, matrices, or tensors. In contrast to MPI, the multithreading technique is based on a shared-memory parallelism, in which data is shared by multiple threads. A common implementation of the multithreading technique is OpenMP. For Python users, the numpy package is based on C libraries, such as Openblas, which are usually built with OpenMP.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8b09aec23eba344fe6583e910048dfec",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3a105214664750a360fc2d3f8a814e17"
+    },
+    "text": "OpenMP is an abbreviation of Open Multi-Processing. It is not related to OpenMPI.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "38dd626683002682b5e225b64d5a7935",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3a105214664750a360fc2d3f8a814e17"
+    },
+    "text": "Some programs are designed in a hybrid scheme such that MPI and OpenMP are combined to enable two-level parallelization. Set MPI tasks and OpenMP threads in hybrid programs based on the following equation, (Number of MPI Tasks) * (Nubmer of Threads) = Total Number of Cores (1)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c93be74ec3cc04588b566c79586dc826",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3a105214664750a360fc2d3f8a814e17"
+    },
+    "text": "There are two or multiple hyperthreads on each CPU core in modern CPU architecture. The hyperthread technique is turned off for most nodes of this cluster, but it may be turned on for some nodes as requested by the owner labs. In the case that there are two hyerthreads per physical core, the right side of the equation should be 2 * (Total Number of Cores) instead.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3ae9644283c09870b1eefc56b1c52d81",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3a105214664750a360fc2d3f8a814e17"
+    },
+    "text": "One way to run hybrid progmrams in Slurm jobs is to use the -n flag for the number of MPI tasks and the -c flag for the number of threads. The follwing is a job script that runs a program with 2 MPI tasks and 8 threads per task on a node with 16 cores.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "acd313800a4746428ee8d46e3d162df6",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "!/bin/bash",
+    "type": "Title"
+  },
+  {
+    "element_id": "66a3eda7466080157191d40daa6bf88b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -p sched_mit_hill",
+    "type": "Title"
+  },
+  {
+    "element_id": "ab11dc9914570034130a200df808e6bc",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -t 30",
+    "type": "Title"
+  },
+  {
+    "element_id": "3840acdc8e68c36cbb3e66440b8d676f",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 1",
+    "type": "Title"
+  },
+  {
+    "element_id": "ae739fd9207522c665a99f2363af1e62",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -n 2",
+    "type": "Title"
+  },
+  {
+    "element_id": "2db95fcddb5bfd4940a1dd1fed2fea95",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -c 8",
+    "type": "Title"
+  },
+  {
+    "element_id": "ad4e829a133fde6aaedb1d6f157fd676",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --mem=10GB",
+    "type": "Title"
+  },
+  {
+    "element_id": "fb3c0bfbc95c7e1ad5aca7e5dcfb239c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "module load gcc/6.2.0 openmpi/3.0.4 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK mpirun -n $SLURM_NTASKS my_program",
+    "type": "Title"
+  },
+  {
+    "element_id": "06d7a33c455b3b08aab1ef067a4eb5e3",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "fb3c0bfbc95c7e1ad5aca7e5dcfb239c"
+    },
+    "text": "The -c flag is the same as --cpus-per-task. The specified value is saved in the variable SLURM_CPUS_PER_TASK. In this case, the total number of cores equals SLURM_NTASKS * SLURM_CPUS_PER_TASK, that is 16.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "785dc3c97e5630133c513af72563f3f9",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "fb3c0bfbc95c7e1ad5aca7e5dcfb239c"
+    },
+    "text": "The built-in environment variable OMP_NUM_THREADS is used to set the number of threads for an OpenMP program. Here it is equal to SLURM_CPUS_PER_TASK. The number of MPI tasks is set to be SLURM_NTASK in the mpirun command line, therefore, the nubmer of MPI tasks times the number of threads equals the total number of CPU cores.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f9f03ff0858c333ef469ea0f654a504f",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "fb3c0bfbc95c7e1ad5aca7e5dcfb239c"
+    },
+    "text": "Users only need to specify the numbers following Slurm flags -n and -c, for example, -n 4 -c 4 or -n 8 -c 2, keeping the product unchanged, then the MPI tasks and threads are all set automatically.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9caf0948ee74ff29f64970f5c4f41b4a",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "fb3c0bfbc95c7e1ad5aca7e5dcfb239c"
+    },
+    "text": "Similarly, here is an exmple script to request two nodes,",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "61bca932df2aa7f5d4657cba84c16723",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "!/bin/bash",
+    "type": "Title"
+  },
+  {
+    "element_id": "118bc127f3dc3d806d3298d6e907e2b0",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -p sched_mit_hill",
+    "type": "Title"
+  },
+  {
+    "element_id": "1a3b1d827124d6f285d1c6b07d034880",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -t 30",
+    "type": "Title"
+  },
+  {
+    "element_id": "d483c7009d3f59d6e8a72254d9d65945",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 2",
+    "type": "Title"
+  },
+  {
+    "element_id": "585b1498d45037530a5679104670d4ab",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --ntasks-per-node=2",
+    "type": "Title"
+  },
+  {
+    "element_id": "d8fd1c1a9826647b65a92794a3e4ada2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -c 8",
+    "type": "Title"
+  },
+  {
+    "element_id": "7ad36856a16945532e5d7b64e6dea6d7",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --mem=0",
+    "type": "Title"
+  },
+  {
+    "element_id": "b77821c041a4260fde0fc12b86a8e7e8",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "module load gcc/6.2.0 openmpi/3.0.4 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK mpirun -n $SLURM_NTASKS my_program",
+    "type": "Title"
+  },
+  {
+    "element_id": "6a6881ed6add0d66cce3e97224ad2ac8",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b77821c041a4260fde0fc12b86a8e7e8"
+    },
+    "text": "In this case, the total number of cores is equal to SLURM_NNODES * SLURM_NTASKS_PER_NODE * SLURM_CPUS_PER_TASK, that is 2 * 2 * 8 = 32. The job will run 4 MPI tasks (i.e. 2 tasks per node) and 8 threads per task. Equation (1) is satisfied as 4 * 8 = 32.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "460ae9a86975f2cbcaf12cf85d139ce8",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b77821c041a4260fde0fc12b86a8e7e8"
+    },
+    "text": "As mentioned in the previous section, it is recommended to run testing cases to determine the values for the flags -N, -n and -c to obtain a better performance.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "14ab0069ad78cfc894c0bb0dee322683",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b77821c041a4260fde0fc12b86a8e7e8"
+    },
+    "text": "There is another way to submit jobs for hybrid programs, in which the -c flag is not used at all. For example, it also works like this,",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4b3c54c9242fe276088abd9bd03734e6",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "!/bin/bash",
+    "type": "Title"
+  },
+  {
+    "element_id": "3e4e30e6e40cd3a510e47e0160bb542d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -p sched_mit_hill",
+    "type": "Title"
+  },
+  {
+    "element_id": "b196bec97dfc0571ccca2b53d364964b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -t 30",
+    "type": "Title"
+  },
+  {
+    "element_id": "b765891bfd60e211308316622293e374",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 1",
+    "type": "Title"
+  },
+  {
+    "element_id": "7fef89be4f421a1a548471a292d4ace4",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -n 16",
+    "type": "Title"
+  },
+  {
+    "element_id": "84bb199fc1b7c32785ef5965e6a0e631",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH --mem=10GB",
+    "type": "Title"
+  },
+  {
+    "element_id": "6f46193f8c7a59580ca3cde0b925d3c3",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "84bb199fc1b7c32785ef5965e6a0e631"
+    },
+    "text": "module load gcc/6.2.0 openmpi/3.0.4 export OMP_NUM_THREADS=8 MPI_NTASKS=$((SLURM_NTASK / $OMP_NUM_THREADS)) mpirun -n $MPI_NTASKS my_program",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "236d226a79b2fde32571efb257213160",
+    "metadata": {
+      "filename": "mpi.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "84bb199fc1b7c32785ef5965e6a0e631"
+    },
+    "text": "This job requests 16 CPU cores on 1 node and runs 2 MPI tasks with 8 threads per task, so equation (1) is satisfied as 2 * 8 = 16. In this case, users need to set the values for the Slurm flag -n and the variable OMP_NUM_THREADS.",
+    "type": "NarrativeText"
+  }
+]

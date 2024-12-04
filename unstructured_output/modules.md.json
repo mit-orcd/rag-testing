@@ -1,0 +1,182 @@
+[
+  {
+    "element_id": "d20ac626ccf440225035b5d16728bbab",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Modules are a handy way to set up your environment for particular work, especially in a shared environment. They provide an easy way to load a particular version of a software, language, or compiler.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e09140f4884b90548aba467a23d77657",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "To see what modules are available, type the command:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c5bba46c24e8b1bab0a2726f4ffcf430",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "c2db4d5f1fd5d0461bb6f5909b51eab0",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "c5bba46c24e8b1bab0a2726f4ffcf430"
+    },
+    "text": "(For Engaging only) By default you will only see the modules for core software. To use community modules you will need to run a module use command. This command will differ whether you are on a Rocky 8 or Centos 7 node. The newest nodes on Engaging are Rocky 8 and older nodes are Centos 7.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f240e0eed9187b42e743979a4d8dbecf",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "c5bba46c24e8b1bab0a2726f4ffcf430"
+    },
+    "text": "To load a module, use the command:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9cdaed9b2fcf6760e4a3e4d4918e2390",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "c5bba46c24e8b1bab0a2726f4ffcf430"
+    },
+    "text": "Where moduleName can be any of the modules listed by the module avail command.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e8f8d888def879c1128f6ab5cf8579c2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "cc043e97375c5836d3adb29ddd9265c1",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "We do not recommend including module load commands in your .bashrc, .bash_profile, or any other startup scripts and instead include them in your job scripts. This provides a more predictable and consistent environment for your jobs. It is also very easy to forget that you have modules loaded in your .bashrc, and these can have impact on future workloads.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ee9f3a06993c603d6d5d61c8d1c7ef47",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "If you want to list the modules you currently have loaded, you can use the module list command:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "26dfc1af8ddd710d6854a734583fc6db",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "If you want to change to a different version of the module you have loaded, you can switch the module you have loaded. This is important to do when loading a different version of a module you already have loaded, the module command will not allow you to load two different versions of the same software. To switch modules run:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d8129ef3f02a977f8800fa1a2a4587a9",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "where oldModuleName is the name of the module you currently have loaded, and newModuleName is the new module that you would like to load.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c8351f1ed802b775208a81c5fcd545ad",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "If you would like to unload the module, or remove the changes the module has made to your environment, use the following command:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9c1439f233a0f0d34d152a2b91d5e725",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "If you would like to unload all modules in your environment, you can use the command:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ac90c7ab940efdc47c6ebeee29c017dd",
+    "metadata": {
+      "filename": "modules.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e8f8d888def879c1128f6ab5cf8579c2"
+    },
+    "text": "This command is helpful when you want to ensure a clean environment. You can include it at the start of your job scripts to make sure your jobs all have a consistent environment. Loaded modules may carry over into your jobs, and sometimes can interfere with the work you are doing in unexpected ways.",
+    "type": "NarrativeText"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "element_id": "dad336299e887dc014258ef1c2dffd3f",
+    "metadata": {
+      "filename": "data-security.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "All ORCD current systems are only suitable for storing data with low-level security requirements. This means that they are not to be used to store sensitive data, such as personal information, financial information, or intellectual property. Additionally, they are not to be used to store data that is subject to use agreements that require security controls or audit tracking.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d39c833890b0d52d21bd8d97c87a910b",
+    "metadata": {
+      "filename": "data-security.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "The following data types are suitable for ORCD systems:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "59f3c00171c478d9584a182693d84a2c",
+    "metadata": {
+      "filename": "data-security.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Anything else in the medium-risk or higher risk levels of the MIT IS&T data risk classification pages should not be stored or analyzed on current ORCD systems.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "dc1b9e07abe28d4e2f33520bfdf5ffa1",
+    "metadata": {
+      "filename": "data-security.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If you have any questions about whether your data is appropriate for storing on ORCD systems please feel free to reach out to us at orcd-help@mit.edu.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c3515b83b6378e0682feb2f1a0d0ca53",
+    "metadata": {
+      "filename": "data-security.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "The ORCD team is currently developing a system for more sensitive data. If you have sensitive data and would like to learn about our plans please feel free to get in touch at orcd-help@mit.edu.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fe8cb99e38821717feec36d0d387cfd5",
+    "metadata": {
+      "filename": "data-security.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Support staff may occasionally access accounts of other users to help debug and troubleshoot problems. All access will be limited to the minimum reasonably needed to address a problem. Staff will not share any data or contents beyond the needs for providing adequate systems support and ensuring stability and security of the systems.",
+    "type": "NarrativeText"
+  }
+]

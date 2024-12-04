@@ -1,0 +1,453 @@
+[
+  {
+    "element_id": "cb59d2e2df7929e779b7bb1b8219802e",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "VSCode is a convenient IDE for development, and one of its nicest features is its ability to run on a remote system using its RemoteSSH extension. This means you can have the VSCode window on your computer, while the files and anything you run will be on the remote system you are connected to.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f546a54f3cfaaa8448d45ad6ebe8ea0b",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Once you've installed the RemoteSSH extension this is fairly easy to set up. However, it is also very easy to set up in such a way that it is not only slow for you, but it also puts excess load on the login nodes and in turn slows things down for others on that node. Luckily, with a few extra steps you can run VSCode on a compute node where it can have more resources to run and won't impact others as much.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8e49f2d60ce07c426e33a69464246ccc",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Click the \"Open a Remote Window\" button in the bottom left corner of your VSCode window (It is a small blue rectangle labeled with ><). In the bar at the top of the page select \"Connect to Host...\", then \"Configure SSH Hosts\", and select first option, which will differ depending on your operating system. This will open your config file in a VSCode tab.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9ad4bda0f8488866129963ca05b1eeb2",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "To run on a compute node you will need at least 2 entries in this file. The first will be a login node that you'll \"jump\" through and the second will be the compute node that is your final destination.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "00b62a451172b882ee6ba8ff8ed0a16a",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "d4ff3d91e5bd8ad9b21cf9370ecd729c",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "00b62a451172b882ee6ba8ff8ed0a16a"
+    },
+    "text": "If you are using one of the login nodes that requires 2-Factor authentication be ready to receive your default 2-Factor prompt when you connect. If you do not respond right away the connection will time out.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4a56116e9883348aa03569d5403edce6",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "8c58f33ca1ccba31a6a1851be529c14f",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4a56116e9883348aa03569d5403edce6"
+    },
+    "text": "To use VSCode on a compute node, an SSH key is necessary. If you haven't set up SSH keys yet, refer to this Engaging guide.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "42087b2994838f70bec5d920847672a6",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "c7000092723aad251a284ab3a76c28cc",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "42087b2994838f70bec5d920847672a6"
+    },
+    "text": "To use VSCode on a compute node, an SSH key is necessary. While Satori documentation is unavailable, you can follow the same steps as outlined on Engaging.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3e9e30918673b7674d1098c80d373665",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "faf2a7ed48ea2455228659dd070104f7",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "To use VSCode on a compute node, an SSH key is necessary. If you haven't set up SSH keys yet, refer to this Open Mind guide.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d37fb48192ed430edf0b9cdf162eba41",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "Replace USERNAME with your username on the system you are connecting to. We will fill in \"nodename\" later.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d60c21881fdb2d8ffd62e1499e95e751",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "Each time you sit down to do remote work through VSCode you will have three steps:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "898702e455746c9d168fa2ef1e1692fb",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "We go through these steps in detail below.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "77295a78c7cac96c9bf5d03c5563d932",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "Open a terminal window and ssh into the login node. If you are not used to doing this you can open a terminal in VSCode and run:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8654c9319d6d353625bd70cb9acadc71",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "Use the name you have used for the login Host in your config file if different than the one above. The example screenshot below shows logging into one of the Engaging login nodes with ssh in a VSCode terminal window.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9a17321847aa2ac298ec93300c8551fd",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "3e9e30918673b7674d1098c80d373665"
+    },
+    "text": "Once you are logged in start an interactive session. If you are planning to only edit files a single core may be sufficient, but if you plan to run code or Jupyter Notebooks you may want to allocate more resources accordingly. Refer to the documentation for your system on how to request an interactive job:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f74a824f1af27e5d721e9c50cb389994",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Engaging's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "f9eba49d62619c7ca8b2d7fded1dbfeb",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Satori's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "895999baaadfab35981c55c6191144da",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SuperCloud's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "OpenMind's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "e8e0d611694b3b23cb85cd692d8b87e2",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "Once your job has started you can run the hostname command to get the name of the node your interactive job is running on. You can also run the squeue --me command to list all your running jobs and get the hostname from the last column.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9d2d702d0131b8aeaa7a0855cb1782de",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "The screenshot below shows requesting a single interactive core for 1 hour on Engaging:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ab5e5c4f3eed98105baecc50f9492201",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "Note that the scheduler will also tell you which node you are allocated in its output. In this screenshot my node name is node020.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f9b5c2a252bd041a996f84a5cbb3fd08",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "Update the HostName of your compute node entry in your config file. If your config file is not open, follow the instructions above to open it again. Then replace whatever you have for HostName in your config file with the output of the hostname command you ran in your interactive session, or got from squeue --me.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "680c72514b6ea618eb97501161308854",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "If your compute node is node1234 then your config file should look something like:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0afd77c9c0b25a2df73988f55076cdad",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "Where USERNAME is replaced by your username.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5bb6cc6f9389e13f4f6390a1c3651ab9",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "This screenshot shows updating the config file for an interactive job running on Engaging:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3de5c0f12d86631fcc874397c85cbb32",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "Since the interactive job in my screenshot is running on node020, I have updated HostName to node-020 for the eofe-compute entry in my config file.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a6b8a4a28e305a33a6d383be06828440",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "You are ready to connect to the compute node you have allocated through your interactive job from VSCode. Select the \"Open a Remote Window\" button in the bottom left corner of your VSCode window. In the bar at the top of the page select \"Connect to Host...\" and select the Host for the compute node that you have created.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "793080c9a30eafa46b4aa2dda0b07e03",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "In the example config file above this would be eofe-compute.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "84ff1ebedddf8139909e95d0ba668ba9",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "In the example config file above this would be satori-compute.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5d89468e3e6819b1cf2dfc52f9c552dd",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "In the example config file above this would be om-compute.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ed00330007da2299a4eab5ec66cacee2",
+    "metadata": {
+      "filename": "vscode.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8465b4b3f7f161ba04f5ac2a6a4c5e77"
+    },
+    "text": "Here is what this might look like for Engaging:",
+    "type": "NarrativeText"
+  }
+]

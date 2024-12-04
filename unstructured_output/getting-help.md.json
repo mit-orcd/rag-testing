@@ -1,0 +1,50 @@
+[
+  {
+    "element_id": "fe71854bbfde3f193ff36614500bd342",
+    "metadata": {
+      "filename": "getting-help.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If you haven't found your answer elsewhere in these pages, your answer may be in the documentation for the system you are using:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4c291a4b9e39edc8536371cd1fc58b68",
+    "metadata": {
+      "filename": "getting-help.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If you can't find your answer in the documentation, please use one of the email lists below to contact us. With the exception of SuperCloud, these lists will create a ticket that our team can assign and track. In all cases these mailing lists includes the entire team, so the best available person to answer your question will respond. Sending email to the entire team will also likely get you the fastest response. Please do not send email directly to individual team members.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ee4219b935675846d0e8f2276f8f17ee",
+    "metadata": {
+      "filename": "getting-help.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "In this email, please provide, where applicable:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6f36b0fe304522fc6a42ae3cbc8ac0e0",
+    "metadata": {
+      "filename": "getting-help.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "We host weekly office hours. Office Hours are a time when you can drop in and ask us questions. It is a great time to discuss or troubleshoot something that is difficult over email. See the table below for the available Office Hours sessions.",
+    "type": "NarrativeText"
+  }
+]

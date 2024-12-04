@@ -1,0 +1,413 @@
+[
+  {
+    "element_id": "8f97d1c5a25c5e50b88dec48f7384817",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "You can log into our systems via SSH through your local terminal. Using SSH in a terminal or command line window on your desktop is the traditional way to access HPC Systems. This method offers the most flexibility, allowing you to start interactive and batch jobs to run your code, download data, and install packages.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fe4703a1a474152317de7418ecb1a8fd",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "A terminal window is a window with a command line interface.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "47af20a4de86682a5373658e5e5fdaf6",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "To log into our systems, we use the terminal to SSH into the system. SSH (Secure Shell) is the primary way to log into remote systems. Once you initiate the SSH command, the shell in your terminal will no longer run on your computer but on the remote system. Authentication is required, either using a password or SSH keys. To set up SSH keys, please refer to the SSH Key Setup Page.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ccd250e42b6e3ea7589992a8d098e03a",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Follow the directions below based on your operating system:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "33ee42dc7e159cfa4277ca6c3a71f155",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Open Terminal by searching for it in Spotlight or by navigating to Applications > Utilities > Terminal.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6aafce44e94d12cb53f671e32cb31740",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Open Terminal from your Applications menu.",
+    "type": "Title"
+  },
+  {
+    "element_id": "b812d2f5eb8f013283b559fe4f23be6a",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "Windows systems offer multiple terminal options: Windows Terminal, Command Prompt, and PowerShell. The best way to get a terminal depends on your version of Windows. Starting at Windows 10, the Windows Subsystem for Linux (WSL) is available, allowing you to run Linux as an application in Windows. You can also use the Windows Command Prompt if you have SSH enabled. For older versions of Windows, install a terminal program that supports bash.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "525ee0ac973bdac3c4e92a0891861e37",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "You have two options:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "46727eb76df6b6be1c52fb0e2e11a33c",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "To check if CMD has SSH enabled, run the command ssh. If SSH is not enabled, follow the instructions on this Page to set it up.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4ecb82dce3d5653b063ff75f7b630fc9",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "If you want to use WSL, follow the instructions on this Page to enable WSL and install a Linux distribution of your choice. If you don't have a preference, Ubuntu is a good place to start. If you have any questions about WSL, there is a good chance they are answered in their FAQ.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "db9831ffc2d471b3d844d4626173119b",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "For older Windows versions, install a terminal that supports bash and SSH, such as MobaXterm. Follow the instructions on this Page to install MobaXterm and create a local shell.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "bf01a8e6fa1fa3483c3d3f80f62bd04b",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "Some programs may seem like valid terminals for accessing SuperCloud but are not ideal. Here are a few examples and why they are not recommended:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fda221125b10d568d4594cbf6a5e5d05",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "Once you have your terminal set up for your specific operating system, you can use SSH to access our HPC systems. Follow the commands below for your desired system.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8a6d61bf57e2a7c0a98150fa2c83911f",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "The Engaging Cluster has 3 login nodes:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "2e2c36cece8f8c3bc9383d5e22129d5a",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "To login via the command line, run the SSH command: ssh [username]@[host]",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "18e18d26c5384888c94ef215779cc831",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "Replace [username] with your MIT Kerberos username and [host] with the desired login node name (e.g., ssh your_name@eofe9.mit.edu).",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "fa0bd805d99f4c73d3fd099e0aed0015",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "6aafce44e94d12cb53f671e32cb31740"
+    },
+    "text": "Connecting to eofe9 or eofe10 requires Two-Factor Authentication.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b984c86f7802178de29347230605038c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "3c1d0e1c73569f3a3e1c299df91f9d5e",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b984c86f7802178de29347230605038c"
+    },
+    "text": "You will be prompted to enter your MIT Kerberos password if you have not set up SSH keys. To set them up, please refer to our SSH Key Setup Page.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "81b7cc7a8acdd01e4e6357e671dedd17",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b984c86f7802178de29347230605038c"
+    },
+    "text": "Satori has 2 login nodes:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "743a55cc10a17c653d0973eacbf9c4e5",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b984c86f7802178de29347230605038c"
+    },
+    "text": "To login via the command line, run the SSH command: ssh [username]@[host]",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "100ff9ab84d4220875f021a707a17c1b",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b984c86f7802178de29347230605038c"
+    },
+    "text": "Replace [username] with your MIT Kerberos username and [host] with the desired login node name (e.g., ssh your_name@satori-login-001.mit.edu).",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "d44b2103adade62b44467a9b723db48c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "83e4eef137c235240294ddf5ff1aafce",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d44b2103adade62b44467a9b723db48c"
+    },
+    "text": "You will be prompted to enter your MIT Kerberos password if you have not set up SSH keys. To set them up, please refer to our SSH Key Setup Page.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3111204f7a5cc20ee1efc51abf0b6572",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d44b2103adade62b44467a9b723db48c"
+    },
+    "text": "Accessing the SuperCloud system through SSH requires that your public ssh-key has been added to the authorized_keys file in your SuperCloud account. Follow the instructions on this page to create your keys and add them to your account.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "561573aa36e18419eb05f0a20b1a403a",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d44b2103adade62b44467a9b723db48c"
+    },
+    "text": "If you have any issues connecting to the system, please send an email to supercloud@mit.edu.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ff9e366cd1a86efd48390cdee55c9928",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d44b2103adade62b44467a9b723db48c"
+    },
+    "text": "To connect to SuperCloud once your SSH keys are setup, follow these steps:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "013d4fc7944c6c47f5bcd54d28dacd54",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d44b2103adade62b44467a9b723db48c"
+    },
+    "text": "To login to OpenMind, you must first be connected to the MIT Wi-Fi or MIT VPN. For further instructions, refer to this page.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b303b841d4cf4a2238a81567d9f6385e",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d44b2103adade62b44467a9b723db48c"
+    },
+    "text": "To login to OpenMind via the command line, run the SSH command: ssh [username]@openmind.mit.edu",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "62125a9698a74cd3ded2795bd0dca49d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Replace [username] with your MIT Kerberos username.",
+    "type": "Title"
+  },
+  {
+    "element_id": "7e3537be718a697e0f900405e5a1a32d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "04db54873f50397f65def828cf1bf64e",
+    "metadata": {
+      "filename": "ssh-login.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "7e3537be718a697e0f900405e5a1a32d"
+    },
+    "text": "You will be prompted to enter your MIT Kerberos password if you have not set up SSH keys. To set them up, please refer to our SSH Key Setup Page.",
+    "type": "NarrativeText"
+  }
+]

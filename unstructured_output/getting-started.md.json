@@ -1,0 +1,842 @@
+[
+  {
+    "element_id": "febe0ba320f3b14170b3095313e7bde7",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "This page contains the most common steps for setting up and getting started with your ORCD system account. We provide this page as a convenient reference to get started. Each system has its own in-depth documentation which can be found on the ORCD Systems page.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5412cc2d2c44eb3ae541bffa342416fc",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Sections that are system-specific will be shown under a list of tabs. Click on the tab for the system you are using and the rest of the page will show the information for that system.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c27d55e638c39cab63ed4fe4eacee073",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If you don't already have an account, click on the tab for the system you are interested in and follow the instructions.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0bbe49af32ba481a8398073c234027e6",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Login into the respective OnDemand Portal https://engaging-ood.mit.edu using your MIT kerberos credentials. The system will then be prompted to create your account automatically. Wait couple minutes for the system to create all the pieces for your account before submitting your first job.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "87713eb729b034b817ff88ec86ef9e8b",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Login into the respective OnDemand Portal https://satori-portal.mit.edu/ using your MIT kerberos credentials. The system will then be prompted to create your account automatically. Wait couple minutes for the system to create all the pieces for your account before submitting your first job.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ab7b2238d224eb7f2a99142483762de3",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Follow the instructions on the Account Request Page.",
+    "type": "Title"
+  },
+  {
+    "element_id": "304f221d25af7350d3f03e0f7e7da822",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "OpenMind will be available to the general MIT Community starting 2024. Those currently eligible can follow the instructions on the Getting an Account page.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "23194bac80be5e96a8bb89ba9848b845",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "The first thing you should do when you get a new account is verify that you can log in. The different ORCD systems provide multiple ways to log in, including both ssh and web portals. Links to instructions for the different systems are below.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ca320d1062e5f545fc3136c4f494e684",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "See the Logging into Engaging page for full documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "524a2d530154c80e6c18e920ddda8254",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "See the Logging into Satori page for full documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4727c18fd9d00ddb71cd5d56f568ed26",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "See the Logging into SuperCloud page for full documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fb6a9d641b9e7fa3ff9b259d811b0339",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "See the Logging into OpenMind page for full documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3befd67c1cdcb49abe5ede38c4a3cd61",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Engaging has four login nodes: eofe7, eofe8, eofe9, and eofe10. Replace USERNAME below with your Kerberos username and use the login node you would like to log in with, the example below is using eofe10.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "bb7270deee4656b58724f2721adbc193",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "If you are prompted for a password enter your Kerberos password. You can add an ssh key if you do not want to enter your Kerberos password at login. eofe9 and eofe10 also require Two-Factor Authentication.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f72289198d8e3d0b7898774b92cdaf4a",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Satori has two login nodes: satori-login-001 and satori-login-002. Replace USERNAME below with your Kerberos username and use the login node you would like to log in with, the example below is using satori-login-001.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "371c722946e6db624135e273807f8b3a",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "If you are prompted for a password enter your Kerberos password. You can add an ssh key if you do not want to enter your Kerberos password at login.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "846156f28d6f9d660ac253fce1cbf917",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "In order to log into SuperCloud with ssh you will need to add ssh keys to your account on the Web Portal. Follow the instructions on the SuperCloud Getting Started page to add your keys.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7b4470e4c24ebf4c0be2a08518fd9565",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Then you can log in with ssh using the following command, where USERNAME is your username on the MIT SuperCloud system:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "131b97efee5019e701c620e1c433f8c5",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Log into OpenMind with the following command in a terminal window. Replace USERNAME below with your Kerberos username.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5b1eebf56d724b48ce008e176335625b",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "If you are prompted for a password enter your Kerberos password. You can add an ssh key if you do not want to enter your Kerberos password at login.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "99c8fe24ae19252449014dd921efd531",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "You can log into OnDemand Web Portal with the link: https://engaging-ood.mit.edu. For full detailed instructions please see the Engaging Documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b7d9bf4a9b8bc148bbe13ee53d17af93",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "You can log into the OnDemand Web Portal with the link: https://satori-portal.mit.edu. For full detailed instructions please see the Satori Documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f4173504852efde45aba57ff4ddd5385",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "You can log into the SuperCloud Web Portal with the link: https://txe1-portal.mit.edu. For full detailed instructions please see the SuperCloud Documentation.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "aa5fe71f95aa53fe7d313bf286b4b6b8",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "OpenMind does not currently have a web portal, but there are plans to add one in the future. Check back, and in the meantime check out OpenMind's documentation on the FastX Remote Desktop. You may find it provides what you are looking for.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f9548f80db26d8ebabc777b5a5f9a193",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Each ORCD system is a shared HPC cluster. You are sharing this resources with a number of other researchers, staff, and students so it is important that you read this page and use the system as intended.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ff984e159e2f364b8efbc3a1d34bf7ec",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Being a cluster, there are several machines connected together with a network. We refer to these as nodes. Most nodes in the cluster are referred to as compute nodes, this is where the computation is done on the system (where you will run your code). When you ssh into the system you are on a special purpose node called the login node. The login node, as its name suggests, is where you log in and is for editing code and files, installing packages and software, downloading data, and starting jobs to run your code on one of the compute nodes.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ba2fb082690e0b279b6955c924a2201d",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "Each job is started using a piece of software called the scheduler, which you can think of as a resource manager. You let it know what resources you need and what you want to run, and the scheduler will find those resources and start your job on them. When your job completes those resources are relinquished. The scheduler is what ensures that no two jobs are using the same resources, so it is very important not to run anything unless it is submitted properly through the scheduler.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e5cf7180f3a059d75cb7f3850b347508",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ab7b2238d224eb7f2a99142483762de3"
+    },
+    "text": "The first thing you may want to do is make sure the system has the software and packages you need. We have installed a lot of software and packages on the system already, even though it may not be immediately obvious that it is there. Review the page for the system you are using paying particular attention to the section on modules and installing packages for the language that you use:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4b73b4ece0768ac2d85802fe3069e84a",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Engaging Software Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "e59a7f70c22924b6c1d9d7e99ca0a24b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Satori Software Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "176da15faf1ddeec3dc3eb2b038a8a70",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SuperCloud Software Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "181dc4e144e810ae37ac3d8e1033e31e",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "OpenMind Software Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "d43eb1d665397c64fb0cdb41f264109c",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "If you are ever unsure if we have a particular software, and you cannot find it, please send us an email and ask before you spend a lot of time trying to install it. If we have it, we can point you to it, provide advice on how to use it, and if we don't have it we can often give pointers on how to install it. Further, if a lot of people request the same software, we may consider adding it to the system image.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "41ba5742904ef69e2cc33f8c17d76fcd",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "Every ORCD system runs Linux, so much of what you do on the cluster involves the Linux command line. That doesn't mean you have to be a Linux expert to use the system! However the more you can get comfortable with the Linux command line and a handful of basic commands, the easier using the system will be. If you are already familiar with Linux, feel free to skip this section, or skim as a refresher.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d5ec39681c2fa8718e36e1e30c7f5b5e",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "Most Linux commands deal with directories and files. A directory, synonymous to a folder, contains files and other directories. The list of directories that lead to a particular directory or file is called its path. In Linux, directories on a path are separated by forward slashes /. It is also important to note that everything in Linux is case sensitive, so a file myScript.sh is not the same as the file myscript.sh. When you first log in you are in you home directory. Your home directory is where you can put all the code and data you need to run your job. Your home directory is not accessible to other users, if you need a space to share files with other users, let us know and we can make a shared group directory for you.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6c8d9e1e8115e32f3057f5769015bde4",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "The path to your home directory on Satori is /home/",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9107f23655549419d8a22316f5e01dbf",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "The path to your home directory on Satori is /home/",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7a1fd5a5a4e7388877f221a7e049b49a",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "The path to your home directory on SuperCloud is /home/gridsan/",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8ebfe0ae1826962b92866928b3665817",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "The path to your home directory on OpenMind is /home/",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fce27b610978a233cf5a3c7ee3c3d16b",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "Anytime after you start typing a Linux command you can press the \"Tab\" button your your keyboard. This called tab-complete, and will try to autocomplete what you are typing. This is particularly helpful when typing out long directory paths and file names. Pressing \"Tab\" once will complete if there is a single completion, pressing it twice will list all potential completions. It is a bit difficult to explain in text, but you can try it out yourself and watch the short demonstration here.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ec80e86833f4e1073b461b023dbce956",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "Finally, click on the box below for a list of Linux Commands. If you are new to Linux try them out for yourself at the command line.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "01c0221417fe827024ef02a299754b02",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "One of the first tasks is to get your code, data, and any other files you need into your home directory on the system. If your code is in github you can use git commands on the system to clone your repository to your home directory. You can also transfer your files to your home directory from your computer by using the commands scp or rsync. Read the page on Transferring Files for the system you are using to learn how to use these commands and transfer what you need to your home directory.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6f45bd11500709d2c7d774b7375fa940",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "You can use scp or rsync from the command line on your local computer for any ORCD system. Both commands work similarly to the cp command, following the pattern",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5024c44f6b7a3b00a6eb0209bd471a7c",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "To transfer a file from your computer to the ORCD system:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "de95e53d8650538fb213a3ea357aee03",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "(You can use any of the login nodes listed above)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a103dc7fc72ce02bb2f3cff095a8c3a9",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "(You can use any of the login nodes listed above)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "2619c08432db16d79a835351c8c0707a",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "To transfer a file from an ORCD system to your computer:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "10fd8fdcadb1854a29a541677408ea05",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "(You can use any of the login nodes listed above)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8fb0fe176310467234f7463b3dab97e1",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "(You can use any of the login nodes listed above)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "59ed45ca055a801a0c2632ef2365e4e0",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "Similar to cp, use the -r flag to copy over an entire directory and its contents.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4472342dd6ecb009e3fa4eb344d66f12",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "(You can use any of the login nodes listed above)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8ab0583da0a2c00b50eae521c0398c58",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "(You can use any of the login nodes listed above)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "281046716c86c2b59efb75cd3c507075",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "The rsync command can be used similarly and has some additional flags you can use. It also can be used to transfer only new or modified files to the destination, which makes it easy to keep a directory in \"sync\".",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5458e99a6dd445c34d663863038f1d67",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "181dc4e144e810ae37ac3d8e1033e31e"
+    },
+    "text": "For more information on transferring files and additional methods please see the documentation page for your system:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fa01d6e00ea0642f9054ac7d49468646",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Engaging Transferring Files Documentation Page Coming Soon",
+    "type": "Title"
+  },
+  {
+    "element_id": "0ec9f5dee881f08aa6d9ceba9cb5ee1d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Satori Transferring Files Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "bba7c4c876add6a0308a4fbb0db9a1cb",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SuperCloud Transferring Files Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "9f65347226e4667db7f7aa6a5c378c99",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "OpenMind Transferring Files Documentation Page",
+    "type": "Title"
+  },
+  {
+    "element_id": "feab930e225af5dc1b56c7c89b3b352b",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "9f65347226e4667db7f7aa6a5c378c99"
+    },
+    "text": "At this point you may want to do a test-run of your code. You always want to start small in your test runs, so you should choose a small example that tests the functionality of what you would ultimately like to run on the system. If your test code is serial and runs okay on a moderate personal laptop or desktop you can request an interactive session to run your code in by executing the command:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8997a491bffb389eda86dac532db92b8",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "9f65347226e4667db7f7aa6a5c378c99"
+    },
+    "text": "After you run this command you will be on a compute node and you can do a test-run of your code. This command will allocate one core to your job. If your test code is multithreaded or parallel, uses a lot of memory, or requires a GPU you should request additional resources as needed. Not requesting the resources you will be using can negatively impact others on the system.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "228f24a1266be8e1bdac13f46bc7de90",
+    "metadata": {
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "9f65347226e4667db7f7aa6a5c378c99"
+    },
+    "text": "Please see your system's documentation pages for more information on requesting more resources for running interactive jobs, and how to run batch jobs.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8a0db8e7fa85a2c036f24f0cc0e86c1e",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Engaging's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "e5999ef626fdef16df1ff4bc25946679",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Satori's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "aaa24a7ead77f9bedf48be733d736edf",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SuperCloud's Documentation for Running Jobs",
+    "type": "Title"
+  },
+  {
+    "element_id": "ae0d6ebcb3837768c0ba46a773baa2c3",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "getting-started.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "OpenMind's Documentation for Running Jobs",
+    "type": "Title"
+  }
+]

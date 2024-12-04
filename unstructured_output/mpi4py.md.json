@@ -1,0 +1,385 @@
+[
+  {
+    "element_id": "7e764fae3d4a538011e3ad9374edb04e",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "MPI for Python (mpi4py) provides Python bindings for the Message Passing Interface (MPI) standard, allowing Python applications to exploit multiple processors on workstations, clusters and supercomputers.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8743dc5c20e4a70c4a4ed7a7038adb1a",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "You can learn about mpi4py here: https://mpi4py.readthedocs.io/en/stable/.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0e91350b117b8be5528d5ddf7cccaeeb",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "The support team has installed mpi4py in an Anaconda module. You can load the module and do not need to install anything, module load openmind/anaconda/3-2022.05",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b5747a054eab3f3dbbf1273084f496fd",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If you want to use Anaconda in your directory, refer to section 3 on this page to set it up, then install mpi4py, conda install -c conda-forge mpi4py",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "97d1a9161e39c737c1e806a477c2b769",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "First, load an Anaconda module on a CentOS 7 head node (such as eofe7 or eofe8), module load anaconda3/2023.07",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "d6e46d8384e5846e0dd9865de5587cec",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "then install mpi4py, conda create -n mpi source activate mpi conda install mpi4py",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4ea56a065ec39db169552e04740048fc",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Prepare your Python codes. Example 1: The following is a code for sending and receiving a dictionary. Save it in a file named p2p-send-recv.py. p2p-send-recv.pyfrom mpi4py import MPI",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "63b26928e3e7815fb923e6a91adbfe53",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "comm = MPI.COMM_WORLD rank = comm.Get_rank()",
+    "type": "Title"
+  },
+  {
+    "element_id": "a7ed439b3dbb097c0957922bcd459fc2",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "63b26928e3e7815fb923e6a91adbfe53"
+    },
+    "text": "if rank == 0: data = {'a': 7, 'b': 3.14} comm.send(data, dest=1, tag=11) print(rank,data) elif rank == 1: data = comm.recv(source=0, tag=11) print(rank,data)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0486d1098a43336aa6f2427483319b1e",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "63b26928e3e7815fb923e6a91adbfe53"
+    },
+    "text": "Example 2: The following is a code for sending and receiving an array. Save it in a file named p2p-array.py. p2p-array.pyfrom mpi4py import MPI import numpy",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "32fe2a9ee71b57c1e547f92e626c8f5a",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "comm = MPI.COMM_WORLD rank = comm.Get_rank()",
+    "type": "Title"
+  },
+  {
+    "element_id": "a4e63548d14a6c5a22cbe37862430e2d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "passing MPI datatypes explicitly",
+    "type": "Title"
+  },
+  {
+    "element_id": "63019870b90bbaae7e6764ee2146d81b",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a4e63548d14a6c5a22cbe37862430e2d"
+    },
+    "text": "if rank == 0: data = numpy.arange(1000, dtype='i') comm.Send([data, MPI.INT], dest=1, tag=77) print(rank,data) elif rank == 1: data = numpy.empty(1000, dtype='i') comm.Recv([data, MPI.INT], source=0, tag=77) print(rank,data)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e74551ccb25bf0a94b8ae691e7e35f16",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "automatic MPI datatype discovery",
+    "type": "Title"
+  },
+  {
+    "element_id": "8079cba96ed18342c92491c060ab7530",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e74551ccb25bf0a94b8ae691e7e35f16"
+    },
+    "text": "if rank == 0: data = numpy.arange(100, dtype=numpy.float64) comm.Send(data, dest=1, tag=13) print(rank,data) elif rank == 1: data = numpy.empty(100, dtype=numpy.float64) comm.Recv(data, source=0, tag=13) print(rank,data)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "36bf7926299219f3fe4d3aa008cea09f",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e74551ccb25bf0a94b8ae691e7e35f16"
+    },
+    "text": "Prepare a job script. The following is a job script for running mpi4py codes on 8 CPU cores of one node. Save it in a file named p2p-job.sh. p2p-job.sh#!/bin/bash -l",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "51718b155fbb51019d17c8ea673e2954",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 1",
+    "type": "Title"
+  },
+  {
+    "element_id": "e6d46182f3e99d31cb3c49a0183e583d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -n 8",
+    "type": "Title"
+  },
+  {
+    "element_id": "a32592f30bb838a8694339cfd03ed19c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "module load openmind/anaconda/3-2022.05",
+    "type": "Title"
+  },
+  {
+    "element_id": "255f8d43534b71f8c6a7c2dce5e141c5",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a32592f30bb838a8694339cfd03ed19c"
+    },
+    "text": "mpirun -np $SLURM_NTASKS python p2p-send-recv.py mpirun -np $SLURM_NTASKS python p2p-array.py",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "62fd329fe18dd3b57f635cd1cf494f75",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "308faa50ad1abe978a835a48b543f2c5",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "62fd329fe18dd3b57f635cd1cf494f75"
+    },
+    "text": "If you use Anaconda in your directory, do not load the Anaconda module.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7d1063c56667a23e7cce002f602979d2",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "62fd329fe18dd3b57f635cd1cf494f75"
+    },
+    "text": "Finally submit the job, sbatch p2p-job.sh",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4ff174e7631043626d6e9fef1cc24a10",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "62fd329fe18dd3b57f635cd1cf494f75"
+    },
+    "text": "Prepare a job script. The following is a job script for running mpi4py codes on 8 CPU cores of one node. Save it in a file named p2p-job.sh. p2p-job.sh#!/bin/bash -l",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c2be6c30c52436b9b3d78e789b84ba5b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -N 1",
+    "type": "Title"
+  },
+  {
+    "element_id": "fc4e446cede311c18912c890fe3a54ac",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SBATCH -n 8",
+    "type": "Title"
+  },
+  {
+    "element_id": "cfd1bd20d1230363e331594ef6ad4917",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "module load anaconda3/2023.07",
+    "type": "Title"
+  },
+  {
+    "element_id": "08890521edd338523927b5da6b8d4b7e",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "source activate mpi mpirun -np $SLURM_NTASKS python p2p-send-recv.py",
+    "type": "Title"
+  },
+  {
+    "element_id": "99adf5e626196cbc639bfa08f238cd6f",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "source activate mpi mpirun -np $SLURM_NTASKS python p2p-array.py",
+    "type": "Title"
+  },
+  {
+    "element_id": "db379bd910cc722eea909c0766af981d",
+    "metadata": {
+      "filename": "mpi4py.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "99adf5e626196cbc639bfa08f238cd6f"
+    },
+    "text": "Finally submit the job, sbatch p2p-job.sh",
+    "type": "NarrativeText"
+  }
+]

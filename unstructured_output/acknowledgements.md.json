@@ -1,0 +1,53 @@
+[
+  {
+    "element_id": "6c6e0e2bee0f1d89e688ce301a6b1f88",
+    "metadata": {
+      "filename": "acknowledgements.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If have used our systems or consultation services and you would like to acknowledge the MIT Office of Research Computing an Data in your paper, we recommend adding the following to your Acknowledgments section (be sure to select the applicable resource(s) from among those in the brackets below):",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a5ed11eac96780d53955d79b5f1bd269",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "acknowledgements.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Acknowledgement Statement",
+    "type": "Title"
+  },
+  {
+    "element_id": "8d2363108a82b53a007791652add7170",
+    "metadata": {
+      "filename": "acknowledgements.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a5ed11eac96780d53955d79b5f1bd269"
+    },
+    "text": "The authors acknowledge the MIT Office of Research Computing and Data for providing [high performance computing, consultation, data] resources that have contributed to the research results reported within this paper.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "47a31c311234ead7c07192d5e6e156b0",
+    "metadata": {
+      "filename": "acknowledgements.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a5ed11eac96780d53955d79b5f1bd269"
+    },
+    "text": "Thank you for acknowledging us – we appreciate it.",
+    "type": "NarrativeText"
+  }
+]

@@ -1,0 +1,297 @@
+[
+  {
+    "element_id": "c73dac327234bd2b3a0f9c5504ebe17a",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "An SSH key is a secure access credential used in the SSH protocol and establishes a secure and encrypted connection to our HPC systems. This page is for those who wish to implement SSH key authentication on top of general MIT Kerberos authentication.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "813faabaf47f163a656d79ffddc98bad",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "SSH keys consist of a pair: a public key and a private key.",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "394a7440b7d9c8dea74327ab300aec95",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "When you attempt to connect to an HPC system using SSH key authentication, the system uses your public key to initiate a challenge that can only be answered correctly using your private key. If the correct response is received, the system verifies your identity and grants access.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4887ecd98251a77add2cfe59aee25ced",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Using the key and lock analogy, the private key is like your key, and the public key is like a lock you might place on a gym locker, which would be like your account on an ORCD system. You can leave the lock locked on the locker at the gym, because no one can open the lock without the key, but you wouldn't want to share your key with anyone else, because then they could get into your locker.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5198adbd0c882333ad79a66fa1098a16",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Do Not Share Your Private Key",
+    "type": "Title"
+  },
+  {
+    "element_id": "4f3dc1e70f2f5e33d3f22c0e1a7933a5",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "5198adbd0c882333ad79a66fa1098a16"
+    },
+    "text": "Your private key should never be shared with anyone. If someone else obtains your private key, they could potentially gain unauthorized access to any system your key is associated with.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "33ffe069dd566794721d6e3878262a97",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "5198adbd0c882333ad79a66fa1098a16"
+    },
+    "text": "Before you generate an SSH key, you should check for existing SSH keys.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8dc986f56fae664c41fedecb8a238d6f",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "5198adbd0c882333ad79a66fa1098a16"
+    },
+    "text": "If you do not have an existing SSH key, follow these steps.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9ffc8123b1629112ab5341a18516c3b4",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "5198adbd0c882333ad79a66fa1098a16"
+    },
+    "text": "Save the key pair: You will be prompted to enter a file path to save the key. Press Enter to accept the default location: Enter a file in which to save the key (/home/your_username/.ssh/id_rsa):",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4677627def9892578aeb31abee2628a4",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "5198adbd0c882333ad79a66fa1098a16"
+    },
+    "text": "Passphrase: You will be asked to enter a passphrase for additional security. You can either enter a passphrase or leave it empty and press Enter: Enter passphrase (empty for no passphrase):",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8169b5a00ea540916d399afc61df7a3b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "b779d066934f2029513f277316e862f7",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8169b5a00ea540916d399afc61df7a3b"
+    },
+    "text": "On ORCD systems, we recommend setting a passphrase as it provides extra security for your account by helping to prevent someone else from using your SSH keys. When you create a passphrase, your private key can only authenticate into your account when the correct passphrase is provided during login. Since you set your passphrase on your system, ORCD staff cannot help you remember or reset the passphrase for your SSH keys. You must create new SSH keys if you cannot remember your passphrase.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9e14dc61ee1bcc35f6de6de165c659a5",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8169b5a00ea540916d399afc61df7a3b"
+    },
+    "text": "To upload your SSH key on our systems, you must update the authorized_keys file in the respective system via terminal. Alternatively, for the Engaging System, you have the option to use OnDemand, and for SuperCloud, you can fill out an SSH key addition form.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d9fa88621e693c4a13800f3d923a03d9",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8169b5a00ea540916d399afc61df7a3b"
+    },
+    "text": "To add your SSH key via Terminal, please follow the steps outlined below:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "be58f036e4467e91c02e7a7c9ebf3984",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8169b5a00ea540916d399afc61df7a3b"
+    },
+    "text": "Make sure to copy the entire line starting with ssh-rsa and ending with your email address or comment.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "34f3562b8a8ba442aa7bb68eed809101",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "c5aaad49ee4bfb693ac5f16bec227700",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "34f3562b8a8ba442aa7bb68eed809101"
+    },
+    "text": "Do not remove anything already present in the authorized_keys file. Be careful to append your key to the end of the file rather than replacing its contents.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "165926777b8f2c8cab329156aa708a26",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "34f3562b8a8ba442aa7bb68eed809101"
+    },
+    "text": "To add your SSH key to Engaging via OnDemand, please follow the steps outlined below:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0e0e094f79a2da5e3934321832b553d5",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "07d116e21a96d6abf6e55b0978feeb5f",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0e0e094f79a2da5e3934321832b553d5"
+    },
+    "text": "Do not remove anything already present in the authorized_keys file. Be careful to append your key to the end of the file rather than replacing its contents.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "07fbd9493ec87e70ac981e96e03d3e59",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0e0e094f79a2da5e3934321832b553d5"
+    },
+    "text": "To add your SSH key to SuperCloud, please follow the steps outlined below:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "854ff5e480e80853c3589d34b60bc36c",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0e0e094f79a2da5e3934321832b553d5"
+    },
+    "text": "To ensure that your SSH key is correctly configured, follow these steps:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "406246fb7be5d316054178ca7e1a79e0",
+    "metadata": {
+      "filename": "ssh-setup.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0e0e094f79a2da5e3934321832b553d5"
+    },
+    "text": "If you encounter SSH key issues, you can reference the SSH Troubleshooting Checklist. While this guide is for SuperCloud, it should be helpful for other systems as well. If you are still having problems, please email us at orcd-help@mit.edu and visit the Getting Help page. In your help email, please include the output of the following command: ssh -vvv USERNAME@cluster_address",
+    "type": "NarrativeText"
+  }
+]

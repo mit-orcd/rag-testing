@@ -1,0 +1,2337 @@
+[
+  {
+    "element_id": "ef2efbebe3413391d35c661c3921cd53",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "This page covers the basics of building programs from C source code, and automating this process using GNU Make. It is intended for scientists venturing into scientific programming, to help ease the frustrations that typically come up when starting to work in compiled programming languages.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "46d7598f783393ff015b6b531df351fe",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "A GCC compiler is needed to compile codes. Load a GCC module first, module load gcc/12.2.0",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9b8a1ff4657f3328fdcf2a339930c0fa",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Let's start with a simple example: building a \"hello world\" C program with the GCC compiler. The program (hello.c) looks like this:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ec35dd2ee0a6f6be3b475f32a0af0f42",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include",
+    "type": "Title"
+  },
+  {
+    "element_id": "de1eeaaae1f09a9bf3807419801d7654",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "int main() { printf(\"Hello World\\n\"); return (0); }",
+    "type": "Title"
+  },
+  {
+    "element_id": "372e9ab3e56db4de2ea63bd0eeb3c2cd",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "de1eeaaae1f09a9bf3807419801d7654"
+    },
+    "text": "To build a working executable from this file, run: gcc hello.c -o hello",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b4d4fbbba90e3cb6c63f2a64f825d772",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "de1eeaaae1f09a9bf3807419801d7654"
+    },
+    "text": "This command creates an executable with a name of hello. Running this command prints the familiar message: $ ./hello Hello World",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "97c794398f5bb9eaddb99795c36b2b9f",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "de1eeaaae1f09a9bf3807419801d7654"
+    },
+    "text": "More happened here behind the scene. In fact, this command wraps up 4 steps of the build process: Preprocess, Compile, Assemble, and Link.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4b983d3525e35f0332b07eaca91ab0ba",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "de1eeaaae1f09a9bf3807419801d7654"
+    },
+    "text": "In this step, gcc calls preprocessing program cpp to interpret preprocessor directives and modify the source code accordingly.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "2180503cfeb46b7c21247604d630584e",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "de1eeaaae1f09a9bf3807419801d7654"
+    },
+    "text": "Some common directives are:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8b27f29f61964d33a72f2541b48c7a3b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include: includes contents of the named file, typically a header file, e.g. #include",
+    "type": "Title"
+  },
+  {
+    "element_id": "d76ae5a4b18860c3c1b582690e518e26",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "define: macro substitution, e.g. #define PI 3.14159.",
+    "type": "Title"
+  },
+  {
+    "element_id": "b3c874c400f178c5e399579ee18bf552",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "ifdef ... #end: conditional compilation, the code block is included only if a certain macro is defined, e.g:",
+    "type": "Title"
+  },
+  {
+    "element_id": "9a2a8ef8836177f3d2845b2c5a568631",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "ifdef TEST_CASE",
+    "type": "Title"
+  },
+  {
+    "element_id": "102938e706688939d9d5cfe88aa0b425",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "9a2a8ef8836177f3d2845b2c5a568631"
+    },
+    "text": "a=1; b=0; c=0;",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "a3979268806afe5bad9fe0267f2deacc",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "endif",
+    "type": "Title"
+  },
+  {
+    "element_id": "3b35a66c41789059892ca06c30be4b4e",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "We could perform just this step of the build process like so: cpp hello.c hello.i",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "220f735b87810f58e12e284ed2402e65",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "Examining the output file (vim hello.i) shows that the long and messy stdio.h header has been appended to our simple code.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "53fdf5b5f114d25d6d236b6bfbf8e065",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "In this step, the (modified) source code is translated from the C programming language into assembly code.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "64d5ad728c2cc5e8adf941295ba4d518",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "Assembly code is a low-level programming language with commands that correspond to machine instructions for a particular type of hardware. It is still just plain text, that says you can read assembly and write it too if you so desire.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ce8ba3bcad8add690b5922c8eb73e74b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "To perform just the compilation step of the build process, we would run: gcc -S -c hello.i -o hello.s",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "17381b6acae867d627f57c93c2d0b234",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "Examining the output file (vim hello.s) shows processor-specific instructions needed to run our program on this specific system. Interestingly, for such a simple program as ours, the assembly code is actually shorter than the preprocesses source code (though not the original source code).",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a11272c411c43bf134ee0a5351a76b75",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "Assembly code is then translated into object code. This is a binary representation of the actions your computer needs to take to run your program. It is no longer human-readable, but it can be understood by computers.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6d0357d7dff11af9f4c0aa1df8017e74",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "To perform just this step of the build process, we would run: gcc -c hello.s -o hello.o",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "50dedd04f2bdb77aff8bd3eed172fd32",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "You can try to view this object file like we did the other intermediate steps (vim hello.o), but the result will not be useful . Your text editor is trying to interpret binary machine language commands as ASCII characters, and (mostly) failing. Perhaps the most interesting result of doing so is that there are intelligable bits --- these are the few variables, etc, that actually are ASCII characters.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b0e38f1875bdd9ecff503f0c09275121",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "Also note that object files are not executables, you can't run them until after the next step.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b9035756386073cda6097659290af6fe",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "In the final step, gcc calls the linker program ld to combine the object file with any external functions it needs (e.g. library functions or functions from other source files). In our case, this would include printf from the C standard library.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "17b3853134abf1028111a07529ef95f8",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "To perform just this step of the build process, we would run: gcc hello.o -o hello",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fe2a1a06cedf25c195ca37501624f69d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "This produces the executable hello finally.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "999846abf86ef71d6e426c52c1d105ff",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "For most projects in the real world, it is convenient to break up the source code into multiple files. Typically, these include a main function in one file, and one or more other files containing functions / subroutines called by main(). In addition, a header file is usually used to share custom data types, function prototypes, preprocessor macros, etc.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "730e2c89247bb7863bfb12d84eef4dfa",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "a3979268806afe5bad9fe0267f2deacc"
+    },
+    "text": "As an example, we create several source code files in a directory named multi_string, which consists of:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "45efa214097f3da09423dd22ad175ad2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "main.c:",
+    "type": "Title"
+  },
+  {
+    "element_id": "f42d05084725040f85afd506bec47506",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include \"header.h\"",
+    "type": "Title"
+  },
+  {
+    "element_id": "ad40cd2731b8e96aa7aca25475b9f583",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include",
+    "type": "Title"
+  },
+  {
+    "element_id": "749110d03c85fae98562ceafd97e3891",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ad40cd2731b8e96aa7aca25475b9f583"
+    },
+    "text": "char *AnotherString = \"Hello Everyone\"; main() { printf(\"Running...\\n\"); WriteMyString(MY_STRING); printf(\"Finished.\\n\"); }",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "07e1b662d996898031b1c67fcd090f0b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "WriteMyString.c:",
+    "type": "Title"
+  },
+  {
+    "element_id": "41cce800eae0a6a6cbd3a8e0e45cb368",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include",
+    "type": "Title"
+  },
+  {
+    "element_id": "c8f9e30c31fd5cbf3da6be68d50bc8af",
+    "metadata": {
+      "emphasized_text_contents": [
+        "AnotherString; void WriteMyString(char"
+      ],
+      "emphasized_text_tags": [
+        "i"
+      ],
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "41cce800eae0a6a6cbd3a8e0e45cb368"
+    },
+    "text": "extern char AnotherString; void WriteMyString(char ThisString) { printf(\"%s\\n\", ThisString); printf(\"Global Variable = %s\\n\", AnotherString); }",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0d53bca63665222a242ce4d864a7ff8c",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "header.h:",
+    "type": "Title"
+  },
+  {
+    "element_id": "9b96e5bdee62ad210c24daaaea8cb109",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "define MY_STRING \"Hello World\"",
+    "type": "Title"
+  },
+  {
+    "element_id": "b3694f3bd3fc01d10880ee782f82b112",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "void WriteMyString();",
+    "type": "Title"
+  },
+  {
+    "element_id": "682657c9a1d9a2143c204a6e108050c9",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b3694f3bd3fc01d10880ee782f82b112"
+    },
+    "text": "The easiest way to compile such a program is to include all the required source files at the gcc command line: gcc main.c WriteMyString.c -o my_string ./my_string",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "fd757f069a5f6cfd4ba412712e721d89",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "b3694f3bd3fc01d10880ee782f82b112"
+    },
+    "text": "It is also quite common to separate out the process into two steps:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6f6031331d3897627a30be11f77d410b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "source code -> object code gcc -c WriteMyString.c gcc -c main.c",
+    "type": "Title"
+  },
+  {
+    "element_id": "4bddd8b8c616b1504c0ff1e18bd31ab2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "object code -> executable (or library) gcc WriteMyString.o main.o -o my_string",
+    "type": "Title"
+  },
+  {
+    "element_id": "755003e9c997829079a589d448137778",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "The reason is that this allows you to reduce compiling time by only recompiling objects that need to be updated. This seems silly for a program with only a few source files, but becomes important when many source files are involved. We will use this approach later when we discuss automating the build process.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "17f3b6c7bde4771827769a09ec13482b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "In the above process, it is not necessary to include the header file explicitly on the gcc command line. This makes sense since we know that the (bundeled) preprocessing step will append any required headers to the source code before it is compiled.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5bf7bd338714aad5fb3fdc65c8e680ed",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "There is one caveat: the preprocessor must be able to find the header files in order to include them. Our example works because the header.h file is in the current directory when we run gcc. We can break it by moving the header to a new subdirectory, like so: mkdir include mv header.h include gcc main.c WriteMyString.c -o my_string",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ea7195b13c1fb18f6e3d78c7ed8e6798",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "The above commands give the output error: main.c:4:10: fatal error: header.h: No such file or directory 4 | #include \"header.h\" | ^~~~~~~~~~ compilation terminated.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4bd37c7e95878344509d3c742be29dfb",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "We can fix this by specifically telling gcc where it can find the requisite headers, using the -I flag: gcc -I ./include main.c WriteMyString.c -o my_string",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ac441af5b0efdbfd55bcfa0d7da41564",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "This is most often needed in the case where you wish to use external libraries installed in non-standard locations. We will explore this case in the next section.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f28f862fdcb5ebb700811f18f2014a10",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "A library is a collection of pre-compiled object files that can be linked into your programs via the linker. In simpler terms, they are machine code files that contain functions / subroutines that you can use in your programs.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8d64f50a5863ffd4bce50f993168ce3c",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "A static library has file extension of .a (meaning archive file). When your program links a static library, the machine code of external functions used in your program is copied into the executable. At runtime, everything your program needs is wrapped up inside the executable.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8d9bf535b6a406e46fafd86fe2e8bb9a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "A shared library has file extension of .so (meaning shared objects). When your program is linked against a shared library, only a small table is created in the executable. At runtime, the exectutable must be able to locate the functions listed in this table. This is done by the operating system - a process known as dynamic linking.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ef46bfb69fe9a3d23f99ad9390edad00",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "Static libraries certainly seem simpler, but most programs use shared libraries and dynamic linking. There are several reasons why the added complexity is thought to be worth it:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d1fcbe0452b84162c2af9e1a2b64883d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "Because of the advantage of dynamic linking, GCC will prefer a shared library to a static library if both are available (by default). We will only use shared libraries in the following.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e4fc4439ca6b51a293a88ff362ab4d0c",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "Many useful fuctions are provided by libraries in the operating system. These are two widely-used examples:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "dd3a97831b2828e7ede032c9f78b81a7",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "4bddd8b8c616b1504c0ff1e18bd31ab2"
+    },
+    "text": "In this section, we will introduce how to build a program with shared libraries in the system default locations. Let's start with an example (roots.c) that uses the sqrt() function from the math library:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "58f75e1dbccd8142f2a2aae6a9e5c6ca",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include",
+    "type": "Title"
+  },
+  {
+    "element_id": "bc8dd387b9c6b8b60a418cd36584f57b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include",
+    "type": "Title"
+  },
+  {
+    "element_id": "0988292120b302d3e90d3e89a2a287e6",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "void main() { int i;",
+    "type": "Title"
+  },
+  {
+    "element_id": "ce87d5aed6a30b36d805aea35335911d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "printf(\"\\t Number \\t\\t Square Root of Number\\n\\n\");\n\nfor (i=0; i<=360; ++i)\n    printf(\"\\t %d \\t\\t\\t %d \\n\", i, sqrt((double) i));",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e8f4763ebd0ced26722633a16cfaabab",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "Notice the function sqrt, which we use, but do not define. The (machine) code for this function is stored in libm.so, and the function definition is stored in the header file math.h.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "38a4f35d64c36ef843d2eb8d859212f8",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "To build successfully, we must:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "bf2d4c9db26bd827dcd302e2ab930ad3",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "We build the program using the two-step scheme: gcc -c roots.c gcc roots.o -lm -o roots",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "386bcf5171588f8993e0ea0d0aba079d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "The first command preprocesses roots.c, appending the header files, and then translates it to object code. This step does need to find the header file, but it does not yet require the library.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "1b0c92d45a2e9a4dbb73f72a557001f2",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "The second command links all of the object code into the executable. It does not need to find the header file, which has already been compiled into roots.o, but it does need to find the library file.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5fe61194c7369ba63e740570ded5c81b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "Library files are linked using the -l flag. Their names are given excluding the lib prefix and exluding the .so suffix, which translates libm.so into m in this case. So we use -lm in the command.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f0dbef77c1da859f613135ebd389f0fc",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "Just as we did above, we can combine the two steps into a single command: gcc roots.c -lm -o roots",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0b71ecd5deecc60a192afa113ab86f7a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0988292120b302d3e90d3e89a2a287e6"
+    },
+    "text": "Finally, we can run the programm: ./roots",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f9ff2cf436667a53b09590cfadda6702",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "0a128ace056386568438e966b7113c73",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "Because we are using shared libraries, the linker must be able to find the linked libraries at runtime, otherwise the program will fail. You can check the libraries required by a program, and whether they are being found correctly or not using the ldd command. For out roots program, we get the following $ ldd roots linux-vdso.so.1 (0x00007ffd2c962000) libm.so.6 => /lib64/libm.so.6 (0x00007fceadbef000) libc.so.6 => /lib64/libc.so.6 (0x00007fcead82a000) /lib64/ld-linux-x86-64.so.2 (0x00007fceadf71000)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6d525480251c3870cb5798914c34d287",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "This shows that our executable requires a few basic system libraries such as libc.so as well as the math library libm.so we explicitly included, and that all of these dependencies are found by the linker.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "2030e48f22f75fc32e8280e14831be1b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "The preprocessor will search some default paths for included header files. Before we go down the rabbit hole, it is important to note that you do not have to do this for a typical build, but the commands may prove useful when you are trying to work out why something fails to build.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "eba56749ebf35e00c99d6549b8a1373a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "To look for the header, we can run the following command to show the preprocessor search path: cpp -Wp,-v",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e0e00c8a7c1f9a9868882a6e0208a5a2",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "The output show the paths where GCC will search for header files by default.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6f0606ec7e3789933e80b82d9b1e3f19",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "The linker will search some default paths for library files. Again, it is important to note that you do not have to do this for a typical build, but the commands may prove useful when you are trying to work out why something fails to build.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d3b228054eb199094998e009dc2f5894",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "To look for the library, we can run the following command to get a list of all library files the linker is aware of, ldconfig -p",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "90d41c462a20d708b37c0351f7566364",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "or search that list for the math library we need: ldconfig -p | grep libm.so",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "42d6f70bd87a0ea1b409af70fffcd87e",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "The latter command gives the output: libm.so.6 (libc6,x86-64, OS ABI: Linux 3.2.0) => /lib64/libm.so.6",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "350d668ba09c99d82e1f451fec3b4417",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "which shows that the math library is available.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4343c4c5416153e70f281350b35f2f52",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "We might also want to peek inside a library file (or any object code for that matter) to see what functions and variables are defined within. We can list all the names, then search for the one we care about, like so: nm /lib64/libm.so.6 | grep \" sqrt\"",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b3bceadfad3a7893c8206da2eb6c68a8",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "The output of this command contains the following line, which shows that it does indeed include something called sqrt. 000000000000f7d0 W sqrt",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "832d4d35bba3fb8b73461c1a67f14765",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "In many cases, you may need to use external libraries that are not included in the operating system. These libraries can be built by you or other develepers and they are saved in non-default locations. In this section, we will introduce how to build a program with libraries in non-default locations.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8035050be23d9dee3daa1815ea46c56a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "f9ff2cf436667a53b09590cfadda6702"
+    },
+    "text": "Let's switch to a new example code. We create a source code named use_ctest.c that reads the following:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4f0a6df474f07384b1834c66ff0eb5e0",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include",
+    "type": "Title"
+  },
+  {
+    "element_id": "0719b76c9946392f578e4a9829585751",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "include \"ctest.h\"",
+    "type": "Title"
+  },
+  {
+    "element_id": "c3d19773f0d5c8c9ec7eae6be233f31a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0719b76c9946392f578e4a9829585751"
+    },
+    "text": "int main(){ int x; int y; int z; ctest1(&x); ctest2(&y); z = (x / y); printf(\"%d / %d = %d\\n\", x, y, z); return 0; }",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "80a54c645dba0798368ea8530212ad15",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0719b76c9946392f578e4a9829585751"
+    },
+    "text": "This code calls two functoins ctest1 and ctest2, which are included in a custom library named ctest.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8467f0489b80436b9e01b2e3b50ac73d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0719b76c9946392f578e4a9829585751"
+    },
+    "text": "In the same level of the main code use_ctest.c, we create a directory named ctest_dir to save all files related to the library ctest. mkdir ctest_dir",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8f871422acd01a2588600c854f61ee3b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0719b76c9946392f578e4a9829585751"
+    },
+    "text": "First, create a subdirectory named src, cd ctest_dir mkdir src cd src",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "42efb880004c886ca822163c40652711",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "0719b76c9946392f578e4a9829585751"
+    },
+    "text": "and save the following two source code files in there.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7938b7994b2b95891eeab08fddacabb0",
+    "metadata": {
+      "category_depth": 0,
+      "emphasized_text_contents": [
+        "i){"
+      ],
+      "emphasized_text_tags": [
+        "i"
+      ],
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "ctest1.c: void ctest1(int i){ i=100; }",
+    "type": "Title"
+  },
+  {
+    "element_id": "2b32b271d5f0531c706a1feebd2495ef",
+    "metadata": {
+      "category_depth": 0,
+      "emphasized_text_contents": [
+        "i){"
+      ],
+      "emphasized_text_tags": [
+        "i"
+      ],
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "ctest2.c: $ cat ctest2.c void ctest2(int i){ i=5; }",
+    "type": "Title"
+  },
+  {
+    "element_id": "67b281b1813b74654aea7ac18c9dff61",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "2b32b271d5f0531c706a1feebd2495ef"
+    },
+    "text": "Each code does nothing but defines an interger.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a2963d52ceb650a3a2522de5118a8bf7",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "2b32b271d5f0531c706a1feebd2495ef"
+    },
+    "text": "Second, create another subdirectory named include, mkdir include",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "02e17cbf2d0c39c479e2282c44468058",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "2b32b271d5f0531c706a1feebd2495ef"
+    },
+    "text": "and save the following header file in there, ctest.h:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c9fd60ed9d961f0e58b9f6c6c587f341",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "ifndef CTEST_H",
+    "type": "Title"
+  },
+  {
+    "element_id": "b429a66b7413f5fae6913bee1e68ccb9",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "define CTEST_H",
+    "type": "Title"
+  },
+  {
+    "element_id": "845a409708333d2132f5b585e39e9fec",
+    "metadata": {
+      "category_depth": 0,
+      "emphasized_text_contents": [
+        "); void ctest2(int"
+      ],
+      "emphasized_text_tags": [
+        "i"
+      ],
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "void ctest1(int ); void ctest2(int );",
+    "type": "Title"
+  },
+  {
+    "element_id": "ffc45c83a317b48f6d5bf7a60d4eda46",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "endif",
+    "type": "Title"
+  },
+  {
+    "element_id": "f0356f2d7e0d0242df4c1291c51d273f",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "This is for the declaration of the funtcions.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "86962a61510a92d323ff8ca4139437d2",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Third, use the following commands to build the shared library named libctest.so: gcc -Wall -fPIC -c ctest1.c ctest2.c gcc -shared -Wl,-soname,libctest.so -o libctest.so ctest1.o ctest2.o",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8f1b389d1aa2be1a73d5490bc8175fae",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Finally, we move the library to a directory named lib, cd .. mkidr lib mv src/libctest.so lib",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3c0d927e1dceb78ec536142ff1bc7961",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Assuming that the library ctest has been built (as instructed in the above side note), we will build the program use_ctest and fix possbile errors in the process.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4a58adb9ec0752cb11247fc99db1867e",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "First, we start with the simplest command: gcc -c use_ctest.c",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7270be01f178cd14d3876528dc33b034",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "It fails with an error: use_ctest.c:2:10: fatal error: ctest.h: No such file or directory",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0b4d6e68a87ceff3b4b73af6255604db",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "As the error message indicates, the problem here is that an included header file is not found by the preprocessor. We know that we can use the -I flag to fix this problem: gcc -I ctest_dir/include -c use_ctest.c",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e5e7f86f994dcfa45aa351deccabe932",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "then it creates an object file use_ctest.o.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "97f0d59ffeaeeb68a127cb1b5f039d38",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "The next step is to use the linker to create an executable. As we have known, we need to explicitly add the library with the -l flag, gcc use_ctest.o -lctest -use_ctest",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c5b0b862e69affedd474709b03b6e164",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "but in this case we still get an error: /usr/bin/ld: cannot find -lctest collect2: error: ld returned 1 exit status",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "098d8ce5654d7e5b7614f1ff7cac8c03",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Just like for the header, we need to explicitly specify the path to the library file using -L: gcc -L ctest_dir/lib use_ctest.o -lctest -o use_ctest",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b597cb10975569da81de73547dd1769c",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "An executable use_ctest is created successfully!",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "594b267c0323d71b6f448bed61b335e2",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Howerver, what happens when we try to run our shiny new executable? $ ./use_ctest ./use_ctest: error while loading shared libraries: libctest.so: cannot open shared object file: No such file or directory",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "1e026da3b35851ccee1cb58a2d079597",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Frustrating? No worry. This is a commonly seen error. We can diagnose this problem by checking to see if the dynamic linker is able to gather up all the dependencies at runtime: $ ldd use_ctest linux-vdso.so.1 (0x00007fff56d9d000) libctest.so => not found libc.so.6 => /lib64/libc.so.6 (0x00007f7f46df6000) /lib64/ld-linux-x86-64.so.2 (0x00007f7f471bb000)",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0ad8afa79305c2cc510d1ba4c27ed698",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "The output clearly shows that it does not. The problem here is that the dynamic linker will only search the system default paths. There are a few solutions.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "87fbd633269400909fc4d3ea03d9e428",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Permanently add our custom library to one of the system default paths. This option needs root permissoins, which is not available for HPC users and thus is not recommended here.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "27a78d578af6b6d8689e2d090d25f759",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Specify the location of libraries using the LD_LIBRARY_PATH environment variable. LD_LIBRARY_PATH contains a colon (:) separated list of directories where the dynamic linker should look for shared libraries. The linker will search these directories before the default system paths. You can define the value of LD_LIBRARY_PATH like so: export LD_LIBRARY_PATH=./ctest_dir/lib:$LD_LIBRARY_PATH",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7650a1968d036aa794ef2f609817ced0",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "and then run the program: $ ./use_ctest 100 / 5 = 20",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9cc35652ee4a43d67fa0ad74ba4b332a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "It works!",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9a7c275df18bd30b213ece9a4cb68aa4",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "Hard-code the location of libraries into the executable. Setting (and forgeting to set) LD_LIBRARY_PATH all the time can be tiresome. An alternative approach is to burn the location of the shared libraries into the executable as an RPATH or RUNPATH. This is done by adding some additional flags for the linker, like so: gcc -L ctest_dir/lib use_ctest.o -lctest -Wl,--rpath=ctest_dir/lib -o use_ctest_1",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "dac1b4d5a9cdc78aeb8e43dfa853a151",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "We can confirm that this works by running the program: $ ./use_ctest_1 100 / 5 = 20",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "0c71999c2ed855c16339a3138ad5ec28",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "or examining the executable to show that it contains the needed library: $ readelf -d use_ctest_1 |grep ctest 0x0000000000000001 (NEEDED) Shared library: [libctest.so] 0x000000000000000f (RPATH) Library rpath: [ctest_dir/lib]",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9f9d8b03de89ef3e58178861969bb67f",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "ffc45c83a317b48f6d5bf7a60d4eda46"
+    },
+    "text": "The manual build process we used above can become quite tedious in real world. There are many ways that we might automate this process. The simplest would be to write a shell script that runs the build commands each time we invoke it. Let's take the simple hello.c program as a test case. Here is a bash shell script (named build.sh) to automate the building process,",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "cb6e70691552ea49b539dbc259309ad2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "!/bin/bash",
+    "type": "Title"
+  },
+  {
+    "element_id": "8d27b30f11e7ce3bc5aa3ea212e5d81b",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "gcc -c hello.c gcc hello.o -o hello",
+    "type": "Title"
+  },
+  {
+    "element_id": "f18e36a88d824e33035fb41ca9aba57b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8d27b30f11e7ce3bc5aa3ea212e5d81b"
+    },
+    "text": "Run it like so: chmod +X build.sh ./build.sh",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "225b3b545918d818abd62021df56fe89",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8d27b30f11e7ce3bc5aa3ea212e5d81b"
+    },
+    "text": "This works fine for small projects, but for large multi-file projects, we would have to compile all the source codes every time we change anything in the codes.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "18b64e46e58b56116a301eef5a84f72b",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8d27b30f11e7ce3bc5aa3ea212e5d81b"
+    },
+    "text": "The GNU Make utility provides a useful way around this problem. The solution is that we (the programmers) write a special script that defines all the dependencies between source files, edit one or more files in our project, then invoke Make to re-compile only those files that have been changed.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "1847e662d8a2cdabfe39e9b6b550417c",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8d27b30f11e7ce3bc5aa3ea212e5d81b"
+    },
+    "text": "GNU Make is a mini-programming language unto itself. To start, we need to create a file named Makefile or makefile to define a set of tasks to be executed. For the simple hello program, a Makefile is like this: hello: hello.o gcc hello.o -o hello",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6c269063e55db5f95b4884455ff98422",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "hello.o: hello.c gcc -c hello.c",
+    "type": "Title"
+  },
+  {
+    "element_id": "5fb5a1bc19741c1af533c7b6de8c4138",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "clean: rm hello hello.o",
+    "type": "Title"
+  },
+  {
+    "element_id": "1e72e3aae867ba43ce0d6089e0f4103a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "5fb5a1bc19741c1af533c7b6de8c4138"
+    },
+    "text": "We can see that each section starts with a line specifyting dependency like so: target: prerequisites. The command block that follows will be executed to generate the target if any of the prerequisites have been modified.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8f71378c63a6f7ba6786338399af04f2",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Note",
+    "type": "Title"
+  },
+  {
+    "element_id": "26864ace00c18ebd8510036c077afa91",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Every line in the command block should be started a tab character instead of multiple space characters.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "4a8452c7e8797cc37621bae100434b77",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Once a Makefile is ready, the program can be built by executing one single command, make",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "51c02f73266f8fbe7d5401807b7a1c8d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "It looks for the Makefile in the same directory and build the targets. The first (top) target will be built by default, or you can specify a specific target to be built, make hello",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7b12ccc74f841af987e7df2b1325b9aa",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "When we run make, the computer will take the following actions:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "568673f193b26214a5d543e51e0c2cac",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Find the default target, which is our executable hello.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f11cd5d6832c967bf47d1ced85d2f3c0",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Check if the target file hello is up-to-date. A target is considered out-of-date if it does not exist or is older than any of the prerequisites. As hello does not exist, so it will be built.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "63e7b498b75bc7181f63309752a6c567",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "The prerequisite of hello is hello.o, which is also a target, so check if it is up-to-date. As hello.o does not exist, so it will be built.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d4fbd98ec34b597988b9e23ffb3f993f",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "The prerequisite of hello.o is hello.c, which is not a target, so there is nothing left to check. The command gcc -c hello.c will be run to create hello.o.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "b8edc8ee40c82fa48f05adfaa10352d1",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Now hello.o is up-to-date, so the next target hello will be built by running the command gcc hello.o -o hello.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "86e98d4c4ab0203b36a970598d503b64",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Note that the command under the clean target is not executed by make, because it is neither the first target nor an prerequisite of any other target. To bring it up, we need to specify the target name: make clean",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "a61fc0e1e948efdb782c8ad530e4d2d2",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "The command under this target will remove the executable and all of the .o files. Note that if all targets are up-to-date, make does not do anything.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "e867c3c10bf0a2afce697807fe74b458",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "8f71378c63a6f7ba6786338399af04f2"
+    },
+    "text": "Now let's switch to the multi-file example program used in previous sections. A Makefile is like this: write: main.o WriteMyString.o gcc main.o WriteMyString.o -o write",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "979cde87b06e644c0f2748c9241c528d",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "main.o: main.c header.h gcc -c main.c",
+    "type": "Title"
+  },
+  {
+    "element_id": "12cc6d0a35c943c67acf7602909f9ace",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "WriteMyString.o: WriteMyString.c gcc -c WriteMyString.c",
+    "type": "Title"
+  },
+  {
+    "element_id": "cd913ac1e8aa37515ae3b522864da8e7",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "clean: rm write *.o",
+    "type": "Title"
+  },
+  {
+    "element_id": "221d7d2fc80805360126ca24068be4c6",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "For the first build, make builds the targets in the following order: main.o, WriteMyString.o, and write. This compiles all source codes and then links all object files to create the executable.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c8cbf80971df3fca2c8357833afeb3aa",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "When the program is rebuilt, make will only build the targets whose prerequisites have been modified since the last build. This feature makes the building process efficient for a program with many source files. For example, if WriteMyString.c is modified, it is recompiled, while main.c is not. If main.c or header.h is modified, only main.c is recompiled, while WriteMyString.c is not. In either case, the write target will be rebuilt, since either main.o or WriteMyString.o is updated.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c1c74b8c825458f9a6ef3d2c2cd228b3",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "We need to run make clean and then run make, if we want to completely rebuild evetyhing.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d64f4543e2376c1401e5256fb6ffebb5",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "By default, make prints on the screen all the commands that it executes. To suppress the print, add an @ before the commands, or turn on the silent mode with the option -s: make -s",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "98d52a877b4d294006b0385030b96289",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "A Makefile could be very compilcated in a practical program with many source files. It is important that the text in a Makefile should be as simple and clear as possbile. In this section, we will learn more useful features of GNU Make and write a real-world Makrefile at the end.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6f684c664e6e38e62f7db4582f4c92f6",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "In our previous examples, you may have noticed that there are many duplications of the same file name or command name. It is convinient to use varialbes in this case. Again, take our multi-file program for example. The Makefile can be rewitten as follows, CC=gcc OBJ=main.o WriteMyString.o EXE=write",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "418716d150d43127ce757f7ab773b128",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cd913ac1e8aa37515ae3b522864da8e7"
+    },
+    "text": "$(EXE): $(OBJ) $(CC) $(OBJ) -o $(EXE)",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "04cd2ff8dae519085113cf2fe8029c05",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "main.o: main.c header.h $(CC) -c main.c",
+    "type": "Title"
+  },
+  {
+    "element_id": "e9fd77bdf4086e9acb80262e7093a922",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "WriteMyString.o: WriteMyString.c $(CC) -c WriteMyString.c",
+    "type": "Title"
+  },
+  {
+    "element_id": "22e568af5af56bbb4ca8c276b4784afa",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e9fd77bdf4086e9acb80262e7093a922"
+    },
+    "text": "clean: rm $(EXE) *.o",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "da97c58a75f7149403b1140ad408f0e8",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e9fd77bdf4086e9acb80262e7093a922"
+    },
+    "text": "Here we have defined the varialbes CC for the compiler, OBJ for object files, and EXE for the executable file. If we want to change the compiler or the file names, we only modify the corresponding variable at one place.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "cc524a4a90912bfe212a408c2d6a6d31",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e9fd77bdf4086e9acb80262e7093a922"
+    },
+    "text": "If there are many varialbes to be defined, it is better to write the definition of all variables in another file, and then include the file in Makefile: include ./variables",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "3a93c9176cfa7bb0b2db3bc2e6fe6e41",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e9fd77bdf4086e9acb80262e7093a922"
+    },
+    "text": "The file variables reads the following: CC=gcc OBJ=main.o WriteMyString.o EXE=write",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "570b5ae029078fc670b1eeca7385a548",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "e9fd77bdf4086e9acb80262e7093a922"
+    },
+    "text": "Furthermore, we can upgrade the Makefile to a higher automatic level using the so-called automatic variables: $(EXE): $(OBJ) $(CC) $^ -o $@",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f401ad20be080837a8d703381b22816f",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "main.o: main.c header.h $(CC) -c $<",
+    "type": "Title"
+  },
+  {
+    "element_id": "cfcbcbbf51d883143c606f9044f9c7d1",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "WriteMyString.o: WriteMyString.c $(CC) -c $<",
+    "type": "Title"
+  },
+  {
+    "element_id": "1a6bad78f09cce8690f40806224bc3a9",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cfcbcbbf51d883143c606f9044f9c7d1"
+    },
+    "text": "Here we have used these automatic variables:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9d9cdc2246f0f9acd58f4035fede7c0a",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cfcbcbbf51d883143c606f9044f9c7d1"
+    },
+    "text": "These variables automatically take the names of current target or prerequisites, no matter what values are assigned to them.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "be71e464e6b00ad4b1189329fe4f5255",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "cfcbcbbf51d883143c606f9044f9c7d1"
+    },
+    "text": "We then notice that the main.o and WriteMyString.o targets are built by the same command. Is there a way to combine these two duplicated commands into one so as to compile all source code files by only one command line? The answer is yes. It can be done with an implicit pattern rule: %.o: %.c $(CC) -c $<",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "d906b0462ac260bdcdf14ede802974fb",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "main.o: header.h",
+    "type": "Title"
+  },
+  {
+    "element_id": "cf2a7d831fd734e2f005eae3f39e9852",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "Here the % stands for the same thing in the prerequisites as it does in the target. Usually, any object file with a subfix .o has a corresponding source file with a subfix .c as an implied prerequisite, so we can use the % to represent the name for both files. If a target (e.g. main.o) needs additional prerequisites (e.g. header.h), write an actionless rule with those prerequisites. We can imagine that applying this impilict rule should significantly simpify a Makefile when there are a large number of source files.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7fec797b9eb6c2cda755300073111c92",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "Mostly the target name is a file name. But there are exceptions, such as the clean target in this example. The rm command will not create any file named clean. What if there exists a file named clean in this directory? Let's do an experiment. $ touch clean $ make clean make: `clean' is up to date.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5284f9d5de5c172130b70a0c9704f2e5",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "We can see that the clean target does not work properly. Since it has no prerequisite, the target clean will be considered up-to-date, and thus nothing will be done. To solve this issue, we can declare the target to be phony by making it a prerequisite of the special target .PHONY as follows: .PHONY: clean",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "6953cbfc6dc192835714ab04412cd891",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "f30114d1300fed99d220f390482165a6",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "In summary, we write a real-world Makefile like so: include ./variables .PHONY: clean",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "8695b79a9c934f82cf6e42ad9fbfd25d",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "$(EXE): $(OBJ) $(CC) $^ -o $@",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "f5af4dc8e585b4831b8648f3b879206e",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "d906b0462ac260bdcdf14ede802974fb"
+    },
+    "text": "%.o: %.c $(CC) -c $<",
+    "type": "UncategorizedText"
+  },
+  {
+    "element_id": "af01f24427d6b274707fda5059eed86f",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "main.o: header.h",
+    "type": "Title"
+  },
+  {
+    "element_id": "135974a7de5551e2a96c72253a983573",
+    "metadata": {
+      "filename": "compile.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "af01f24427d6b274707fda5059eed86f"
+    },
+    "text": "clean: rm $(EXE) *.o",
+    "type": "NarrativeText"
+  }
+]

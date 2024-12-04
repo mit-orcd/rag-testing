@@ -1,0 +1,254 @@
+[
+  {
+    "element_id": "803ae02e65a27b1ddd60417d6c142ab0",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "MuJoCo is a free and open source physics engine that aims to facilitate research and development in robotics, biomechanics, graphics and animation, and other areas where fast and accurate simulation is needed.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "7cf5d4371e42bb47e844a63ed87b73dd",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "You can learn about MuJoCo here: https://mujoco.org.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "432f0f99f3023d63759f921a00427e94",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Whether you are installing on Engaging or SuperCloud, you’ll first have to install the MuJoCo binaries. This process is the same on all systems.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "80d4b865fadc8cd2ac173452c7d4c59e",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "First, install MuJoCo itself somewhere in your home directory. This is as simple as downloading the MuJoCo binaries, which can be found on their web page. For the release that you want, select the file that ends with “linux-x86_64.tar.gz”, for example for 2.3.0 select mujoco-2.3.0-linux-x86_64.tar.gz. Right click, and copy the link address. Then you can download on one of the login nodes with the “wget” command, and untar:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "29ae9c64ef35780f008e519f150fd96a",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "In order for mujoco-py to find the MuJoCo binaries, set the following paths:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "22eb01782d6f9ba75b0770cd9fa6c401",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "First, make sure the MUJOCO_PY_MUJOCO_PATH and LD_LIBRARY_PATH environment variables are set pointing to your mujoco installation. You can use the “echo” command to do this:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ed2a145d742cbbebde24460def71e726",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If any of these are not set properly you can set them as described above (see here for MUJOCO_PY_MUJOCO_PATH, LD_LIBRARY_PATH.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c237fa7507d018147490c63c32c69b21",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Next load either a Python or Anaconda module. In this example I loaded the latest anaconda3 module (run module avail anaconda to see the current list of available anaconda modules):",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "19ce4e2253ab550ec57fd4246f238b51",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "From here on you can follow the standard instructions to install mujoco-py, using the --user flag where appropriate to install in your home directory, or install in an anaconda or virtual environment (do not use the --user flag if you want to install in a conda or virtual environment). Here I am installing in my home directory with --user:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "033ef96117d46b27030d311fb3a72628",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Start up python and import mujoco_py to complete the build process:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "c71f5ab2e6e48310579a122c2102d7b1",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "MuJoCo, particularly mujoco-py, can be tricky to install on SuperCloud as it uses file locking during the install and whenever the package is loaded. File locking is disabled on the SuperCloud shared filesystem performance reasons, but is available on the local disk of each node. Therefore, one workaround is to install mujoco-py on the local disk of one of the login nodes and then copy the install to your home directory. To load the package, the install then needs to be copied to the local disk.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "97414319b1871e2244851843fcdaee97",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "We’ve found the most success by doing this with a python virtual environment. By using a python virtual environment you can install any additional packages you need with mujoco-py, and they can be used along with packages in our anaconda module, unlike conda environments.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "1bdb3a022b5e54decdf99a07febde057",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Create the virtual environment on the local disk of the login node and install mujoco-py (install the version you would like to use):",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "55581f5dbe301f350f2e1ba0d7b54eb8",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Now install any other packages you need to run your MuJoCo jobs. With virtual environments you won’t see any of the packages you’ve previously installed with pip install --user or what you may have installed in another environment. You should still be able to use any of the packages in the anaconda module you’ve loaded, so no need to install any of those.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "54afc0c6a1bcc305cd9820b6c8868456",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Since you are installing into virtual environment, do not use the --user flag.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "bbd23c13929ef7d31b0f08f9b80a4395",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Once you’ve installed the packages you need, start Python and import mujoco_py to finish the build:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "07f8c36e67d78f846e8dac954803ce89",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Now that your environment is created, copy it to your home directory for permanent storage.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "9fbc68e9aa7c442ddad8070ae5ada424",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "If you’d like you can run the few example lines listed on install section of the mujoco-py github page to verify the install went through properly:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "2c967e9baae437384284e44e47d51bcb",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "To use MuJoCo you’ll need to first load the same Python or Anaconda module you used to install mujoco-py. If you installed it into a conda environment or python virtual environment, load that environment as well. We recommend you do this in your job submission script rather than in your .bashrc or at the command line before you submit the job. This way you know your job is configured properly every time it runs.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "bf682208f492dd105f109fdc07b48245",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "You can use the following test scripts to test your MuJoCo setup in a job environment, and as a starting point for your own job:",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "5ceb47a8dc64044e63bd72bb69a85c19",
+    "metadata": {
+      "filename": "mujoco.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Now whenever you use mujoco-py the installation will need to be on the local disk of the node(s) where you are running. In your job script you can add a few lines of code that will check whether the environment exists on the local disk, and if not copy it. You can run these lines during an interactive job as well.",
+    "type": "NarrativeText"
+  }
+]

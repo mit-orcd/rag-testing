@@ -1,0 +1,26 @@
+[
+  {
+    "element_id": "422dad3a0a1c4bfd1644e84eea08a88f",
+    "metadata": {
+      "filename": "orcd-docs.mit.edu.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "The MIT Office or Research Computing and Data (ORCD) provides access and support for the compute and data needs of a wide range of research activities. These pages provide help material for hands-on working with ORCD supported services.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "82b2d4f1f15f3c41bb329f78b9739811",
+    "metadata": {
+      "filename": "orcd-docs.mit.edu.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Help working with ORCD services is also available through email to orcd-help@mit.edu, please feel free to contact us with questions and suggestions. For more information on existing documentation, office hours, and other ways to get help, please see our Getting Help page.",
+    "type": "NarrativeText"
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "element_id": "eb841f0c9d6708102cf3b46f4439c392",
+    "metadata": {
+      "filename": "julia.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "There are a number of versions of Julia that are currently available on our clusters (see here for information on using different modules). However, sometimes, you may need a specific version of Julia that is not provided. If this happens, you can download it.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ee79b74588d5817a48c88780b19d53ee",
+    "metadata": {
+      "filename": "julia.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "A complete list of previous Julia versions can be found here. From this site, copy the link to the tar.gz file that corresponds to the version you need. Be sure to select the version for a Linux operating system and x86_64 architecture.",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "ceaf783004ee44606091d3d92fea8200",
+    "metadata": {
+      "filename": "julia.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Download the .tar file: wget [link to file]",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "db83e3b99409cba9786496b89945e278",
+    "metadata": {
+      "filename": "julia.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Extract the .tar file: tar -xvzf [file name]",
+    "type": "NarrativeText"
+  },
+  {
+    "element_id": "20293ed4a76e277cec40f19a77ce99c8",
+    "metadata": {
+      "category_depth": 0,
+      "filename": "julia.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ]
+    },
+    "text": "Add the downloaded version to your path: export PATH=\"~/path/to/your/julia/directory/bin:$PATH\"",
+    "type": "Title"
+  },
+  {
+    "element_id": "2bb53e22727b97b07f32f13a63140fb9",
+    "metadata": {
+      "filename": "julia.md",
+      "filetype": "text/markdown",
+      "languages": [
+        "eng"
+      ],
+      "parent_id": "20293ed4a76e277cec40f19a77ce99c8"
+    },
+    "text": "The following example is for Julia 1.9.0: wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.0-linux-x86_64.tar.gz tar -xvzf julia-1.9.0-linux-x86_64.tar.gz export PATH=\"~/julia-1.9.0/bin:$PATH\"",
+    "type": "NarrativeText"
+  }
+]
