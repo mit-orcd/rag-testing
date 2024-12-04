@@ -8,19 +8,21 @@ Welcome! This RAG APP utilizes Hugging Face LLMs and ORCD/general cluster docume
 
 First, you'll want to get on a GPU compute node in Engaging/Satori etc. To do this, run `salloc -N 1 -n 1 --gres=gpu:1 -p mit_normal_gpu --nodelist=nodename`. Note down the number of the node allocated to you; for example, `node2804` has number `2804`.
 
-### Option 1: Quick & Convenient
-Pull this docker image from Dockerhub at [
-
-Now, start a container based on this image using the command `docker run ` Before doing this, make sure you get a Hugging Face token (instructions on this below). This command will run the image, automatically launching the `app.py` file. Now, open a new terminal (off the compute node) and tunnel into the container using the command `ssh -L 5000:node[number]:8080 -l [username]@eofe10.mit.edu`. Fill in `number` and `username`. Now, you can go to [http://localhost:5000] and interact with the app.
-
-### Option 2
-Download this repository. Create your own python environment with `python -m v [env_name].` Pip install the requirements file: `python -m pip install -r requirements.txt`. Now, run `app.py` with `python code/app.py` after acquiring a Hugging Face token. Now, you can go to [http://localhost:5000] and interact with the app.
-
-
 ### Getting a Hugging Face token
-In both cases, to run app.py, you'll need to get a Hugging Face token. Create a Hugging Face account at [https://huggingface.co/welcome] and then follow this URL [https://huggingface.co/docs/hub/en/security-tokens] to make a **fine-grained** Hugging Face token. Set the `access_token` variable in the app.py file to your token. Now, simply run app.py: `python app.py` or start the Docker container if you are using Docker. This will download our default model and start a Flask server on an available local port.
+In both cases, to run app.py, you'll need to get a Hugging Face token. Create a Hugging Face account at [https://huggingface.co/welcome] and then follow this URL [https://huggingface.co/docs/hub/en/security-tokens] to make a **fine-grained** Hugging Face token. 
 
 Note that some of the Hugging Face LLMs are gated; to run these, you'll need to request access to use the models on the Hugging Face website, which is usually granted within a few hours. Specifically, request access to Llama-3.1-8B-Instruct at [https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct]. Some of the model options available on the app are not gated, so you can use those initially.
+
+
+### Option 1: Quick & Convenient
+Pull this docker image from Dockerhub at [] using `docker pull [.]`
+
+Now, start a container based on this image using the command `apptainer build ` Before doing this, make sure you got a Hugging Face token (instructions on this above). This command will run the image, automatically pulling the RAG code/vectorstores. Now, set the `access_token` variable in the app.py file to your HF token. Now, simply run app.py: `flask --app app run --host=0.0.0.0.` This will download our default model and start a Flask server on an available local port.
+
+Finally, open a new terminal (off the compute node) and tunnel into the container using the command `ssh -L 5000:node[number]:8080 -l [username]@eofe10.mit.edu`. Fill in `number` and `username`. Now, you can go to [http://localhost:5000] and interact with the app.
+
+### Option 2
+Download this repository. Create your own python environment with `python -m v [env_name].` Pip install the requirements file: `python -m pip install -r requirements.txt`. Now, simply run app.py: `flask --app app run --host=0.0.0.0.` This will download our default model and start a Flask server on an available local port. Now, you can go to [http://localhost:5000] and interact with the app.
 
 ## Next Plans
 
