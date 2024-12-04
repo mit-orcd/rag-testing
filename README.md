@@ -19,7 +19,7 @@ Pull this docker image from Dockerhub at [] using `apptainer pull [.]` Even bett
 
 Now, start a container based on this image using the command `apptainer run [.]` Before doing this, make sure you have a Hugging Face token (instructions on this above). This command will run the image, automatically pulling the RAG code/vectorstores. Now, set the `access_token` variable in the app.py file to your HF token. Then, simply run app.py: `flask --app app run --host=0.0.0.0.` This will download our default model and start a Flask server on an available local port.
 
-Finally, open a new terminal (off the compute node) and tunnel into the container using the command `ssh -L 5000:node[number]:8080 -l [username]@eofe10.mit.edu`. Fill in `number` and `username`. Now, you can go to [http://localhost:5000] and interact with the app.
+Finally, open a new terminal (off the compute node) and tunnel into the container using the command `ssh -L 5000:node[number]:8080 [username]@eofe10.mit.edu`. Fill in `number` and `username`. Now, you can go to [http://localhost:5000] and interact with the app.
 
 ### Option 2
 Download this repository. Create your own python environment with `python -m v [env_name].` Pip install the requirements file: `python -m pip install -r requirements.txt`. Now, simply run app.py: `flask --app app run --host=0.0.0.0.` This will download our default model and start a Flask server on an available local port. Now, you can go to [http://localhost:5000] and interact with the app.
