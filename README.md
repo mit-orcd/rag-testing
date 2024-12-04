@@ -6,7 +6,7 @@ Welcome! This RAG APP utilizes Hugging Face LLMs and ORCD/general cluster docume
 
 ## Running Your Own ORCD RAG Server
 
-First, you'll want to get on a GPU compute node in Engaging/Satori etc. To do this, run `salloc -N 1 -n 1 --gres=gpu:1 -p mit_normal_gpu --nodelist=nodename`. Note down the number of the node allocated to you; for example, `node2804` has number `2804`.
+First, you'll want to get on a GPU compute node in Engaging/Satori etc. To do this, run `salloc -N 1 -n 1 --gres=gpu:1 -p mit_normal_gpu`. Note down the number of the node allocated to you; for example, `node2804` has number `2804`.
 
 ### Getting a Hugging Face token
 In both cases, to run app.py, you'll need to get a Hugging Face token. Create a Hugging Face account at [https://huggingface.co/welcome] and then follow this URL [https://huggingface.co/docs/hub/en/security-tokens] to make a **fine-grained** Hugging Face token. 
