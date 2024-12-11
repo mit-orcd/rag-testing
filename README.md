@@ -15,7 +15,7 @@ Note that some of the Hugging Face LLMs are gated; to run these, you'll need to 
 
 
 ### Option 1: Quick & Convenient
-Pull this docker image from Dockerhub at [] using `apptainer pull [.]` Even better, use the SIF file `...` in the repository. 
+Pull this docker image from Dockerhub at [] using `module load apptainer` and `apptainer pull [.]` Even better, use the SIF file `...` in the repository. 
 
 Now, start a container based on this image using the command `apptainer run [.]` Before doing this, make sure you have a Hugging Face token (instructions on this above). This command will run the image, automatically pulling the RAG code/vectorstores. Now, set the `access_token` variable in the app.py file to your HF token. Then, simply run app.py: `flask --app app run --host=0.0.0.0.` This will download our default model and start a Flask server on an available local port.
 
