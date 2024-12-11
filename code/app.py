@@ -27,7 +27,7 @@ huggingface_hub.login(token=access_token)
 
 LLM_MODEL_NAME = "gpt2" # "meta-llama/Meta-Llama-3.1-8B-Instruct"
 EMBEDDING_MODEL_NAME = "BAAI/bge-base-en-v1.5"
-PATH_RELEVANT_DOCS = "../vectorstore/" # path to the documentation we want
+PATH_RELEVANT_DOCS = "../vectorstore/orcd/" # path to the documentation we want
 
 def initialize_components():
     """ Initialize the retriever and LLM components based on the current settings. """
@@ -81,7 +81,11 @@ def update_settings():
     global LLM_MODEL_NAME, EMBEDDING_MODEL_NAME, PATH_RELEVANT_DOCS
     LLM_MODEL_NAME = request.form['llm_model_name']
     EMBEDDING_MODEL_NAME = request.form['embedding_model_name']
-    PATH_RELEVANT_DOCS = int(request.form['num_relevant_docs'])
+
+    if request.form['num_relevant_docs'] == 'orcd':
+        PATH_RELEVANT_DOCS = "../vectorstore/orcd/"
+    elif request.form['num_relevant_docs'] == 'engaging_cluster':
+        PATH_RELEVANT_DOCS = "../vectorstore/engaging/"
     
     # Reinitialize the components (llm and retriever objects)
     initialize_components()

@@ -7,8 +7,8 @@ url = 'https://engaging-web.mit.edu/eofe-wiki/'
 base_url = 'https://engaging-web.mit.edu'
 
 # Folder to save the pages
-folder = '../engaging_docs'
-
+folder = '../satori_docs'
+visited = []
 # Create the folder if it doesn't exist
 if not os.path.exists(folder):
     os.makedirs(folder)
@@ -20,7 +20,7 @@ def scrape_and_download(url):
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Find all <a> tags under <ul> with class 'topics'
-        topics = soup.find('ul', class_='topics')
+        topics = soup.find('ul', class_='topics') # class_= 'topics
         if topics:
             links = topics.find_all('a', href=True)
             for link in links:
@@ -44,7 +44,12 @@ def scrape_and_download(url):
             href = link['href']
             if href.startswith('/'):
                 href = url + href
-            if href not in [url, url + '/']:
+            if href.startswith('#'):  # ignore anchor links
+                continue
+            if href not in [url, url + '/'] and href not in visited:
+                print("hrefs", href)
+                # print("visited", visited)
+                visited.append(href)
                 scrape_and_download(href)
     except Exception as a:
         print(a)

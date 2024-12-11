@@ -14,8 +14,8 @@
 
             <label for="llm_model_name">LLM Model Name:</label>
             <select id="llm_model_name" name="llm_model_name" onchange="toggleOtherInput('llm_model_name', 'llm_model_name_other');">
-                <option value="gpt" {% if llm_model_type == 'gpt' %}selected{% endif %}>GPT2</option>
-                <option value="ollama" {% if llm_model_type == 'ollama' %}selected{% endif %}>LLama 8B</option>
+                <option value="gpt2" {% if llm_model_type == 'gpt' %}selected{% endif %}>GPT2</option>
+                <option value="meta-llama/Meta-Llama-3.1-8B-Instruct" {% if llm_model_type == 'ollama' %}selected{% endif %}>LLama 8B</option>
             </select>
              <!-- <input type="text" id="llm_model_name_other" name="llm_model_name_other" style="display: none;"><br> -->
 
@@ -27,7 +27,7 @@
             <label for="num_relevant_docs">Number of Relevant Docs:</label>
             <select id="num_relevant_docs" name="path_relevant_docs" value="{{ path_relevant_docs }}"><br>
                 <option value="orcd" {% if path_relevant_docs == 'orcd' %}selected{% endif %}>ORCD</option>
-                <option value="cluster" {% if path_relevant_docs == 'cluster' %}selected{% endif %}>ORCD + Cluster</option>
+                <option value="engaging" {% if path_relevant_docs == 'engaging_cluster' %}selected{% endif %}>Engaging Cluster</option>
             
             <button type="submit">Update Settings</button>
         </div>

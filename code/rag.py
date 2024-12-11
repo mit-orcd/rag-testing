@@ -18,7 +18,7 @@ import os
 login()
 
 
-output_path = "../unstructured_output"
+output_path = "../unstructured_output/engaging"
 elements = []
 
 for filename in os.listdir(output_path):
@@ -38,7 +38,7 @@ for chunked_element in chunked_elements:
 docs = chromautils.filter_complex_metadata(documents)
 
 embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-base-en-v1.5")
-vectorstore = Chroma.from_documents(documents, embeddings, persist_directory="../vectorstore/")
+vectorstore = Chroma.from_documents(documents, embeddings, persist_directory="../vectorstore/engaging")
 # retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
 """ model_name = "meta-llama/Meta-Llama-3.1-8B-Instruct"
