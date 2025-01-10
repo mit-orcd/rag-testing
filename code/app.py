@@ -42,7 +42,7 @@ def initialize_components():
     llm_model = HuggingFacePipeline.from_model_id( # simple way
     model_id=LLM_MODEL_NAME, # meta-llama/Meta-Llama-3.1-8B-Instruct# gated model, you must get access first to use it. I'll also have options to use non-gated models
     task="text-generation",
-    device = "cuda" if torch.cuda.is_available() else "cpu",
+    device = 0 if torch.cuda.is_available() else -1,
     pipeline_kwargs={"max_new_tokens": 350,}
     )
 
